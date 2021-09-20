@@ -1,4 +1,4 @@
-// Exemplos
+/* // Exemplos
 
 // Exercício 0A
 function soma() {
@@ -242,5 +242,154 @@ const canStudy = ofAge && highSchool && availability
 console.log(canStudy)
 
 // ✅
+
+} */
+
+
+
+// SEGUNDA VEZ ----------------------------------------------------------------
+
+
+
+// Exemplos
+
+// Exercício 0A
+function soma() {
+  // escreva seu código aqui
+  const num1 = prompt('Digite o primeiro número')
+  const num2 = prompt('Digite o segundo número')
+
+  console.log(Number(num1) + Number(num2))
+}
+
+// Exercício 0B
+function imprimeMensagem() {
+  // escreva seu código aqui
+  const mensagem = prompt('Digite sua mensagem')
+
+  console.log(mensagem)
+}
+
+// ---------------------------------------------------
+// Exercícios
+
+// Exercício 1
+function calculaAreaRetangulo() {
+  const largura = Number(prompt("tell me a number"))
+  const altura = Number(prompt("tell me another number"))
+  const area = largura * altura
+  console.log(area)
+}
+
+// Exercício 2
+function imprimeIdade() {
+  const currentYear = Number(prompt("Tell me the current year"))
+  const birthYear = Number(prompt("Tell me your Birth Year"))
+  const userAge = currentYear - birthYear
+  console.log(userAge)
+}
+
+// Exercício 3
+function calculaIMC() {
+  const userWeight = Number(prompt("Tell me your weight"))
+  const userHeight = Number(prompt("Tell me your height"))
+  const imc = userWeight / (userHeight ** 2)
+  console.log(imc)
+}
+
+// Exercício 4
+function imprimeInformacoesUsuario() {
+  const userName = prompt("Tell me your name")
+  const userAge = Number(prompt("Tell me your age"))
+  const userEmail = prompt("Tell me your email")
+  console.log(`Meu nome é ${userName}, tenho ${userAge} anos, e o meu email é ${userEmail}.`)
+}
+
+// Exercício 5
+function imprimeTresCoresFavoritas() {
+  const firstColor = prompt("Tell me a color")
+  const secondColor = prompt("Tell me a color")
+  const thirdColor = prompt("Tell me a color")
+  const arrayColor = []
+
+  arrayColor.push(firstColor, secondColor, thirdColor)
+
+  console.log(arrayColor)
+}
+
+// Exercício 6
+function retornaStringEmMaiuscula() {
+  const userString = prompt("Write a text")
+
+  console.log(userString.toUpperCase())
+}
+
+// Exercício 7
+function calculaIngressosEspetaculo() {
+  const showCost = Number(prompt("How much did the show cost?"))
+  const ticketPrice = Number(prompt("What is the price of each ticket?"))
+  const remainder = showCost % ticketPrice
+  const rawAmount = (showCost - remainder) / ticketPrice
+  const finalAmount = rawAmount + Number(!Number.isInteger(showCost/ticketPrice))
+
+  console.log(finalAmount)  
+}
+
+// Exercício 8
+function checaStringsMesmoTamanho() {
+  const userString1 = prompt("Write a text")
+  const userString2 = prompt("Write another text")
+
+  const stringComparison = userString1.length === userString2.length
+
+  console.log(stringComparison)
+}
+
+// Exercício 9
+function checaIgualdadeDesconsiderandoCase() {
+  const firstString = prompt("Type a text!")
+  const secondString = prompt("Type another text!")
+  const comparison = (firstString.toUpperCase()) === (secondString.toUpperCase())
+
+  console.log(comparison)
+}
+
+// Exercício 10
+function checaRenovacaoRG() {
+  const currentYear = Number(prompt("What is the current year?"))
+  const birthYear = Number(prompt("What is your birth year?"))
+  const idYear = Number(prompt("When was the year that you got your ID?"))
+  
+  const userAge = currentYear - birthYear
+  const idAge = currentYear - idYear
+
+  const renew20 = (userAge <= 20) && (idAge >= 5)
+  const renew2150 = (userAge > 20) && (userAge <= 50) && (idAge >= 10)
+  const renew50plus = (userAge > 50) && (idAge >= 15)
+
+  console.log(renew20 || renew2150 || renew50plus)
+}
+
+// Exercício 11
+function checaAnoBissexto() {
+  const currentYear = Number(prompt("tell me the current year"))
+  const firstCondition = (currentYear % 400) === 0
+  const secondCondition = ((currentYear % 4) === 0) && !(((currentYear % 100) === 0) && !((currentYear % 400) === 0))
+
+  console.log(firstCondition || secondCondition)
+}
+
+// Exercício 12
+function checaValidadeInscricaoLabenu() {
+  const userAge = prompt("Are you above 18? sim/nao")
+  const highSchool = prompt("Have you complete high School? sim/nao")
+  const availability = prompt("Are you available to take the couse? sim/nao")
+
+  const conditionAge = userAge === "sim"
+  const conditionSchool = highSchool === "sim"
+  const conditionAvailatility = availability === "sim"
+
+  console.log(conditionAge && conditionSchool && conditionAvailatility)
+  
 
 }
