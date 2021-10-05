@@ -97,6 +97,27 @@ function comparaDoisNumeros(num1, num2) {
   //   diferenca: Z
   // }
 
+  const twoNumbersComparison = {
+    maiorNumero: null,
+    maiorDivisivelPorMenor: null,
+    diferenca: null
+  }
+  let highestNumber
+  let lowestNumber
+
+  if (num1 >= num2) {
+    highestNumber = num1
+    lowestNumber = num2
+  } else if (num2 > num1) {
+    highestNumber = num2
+    lowestNumber = num1
+  }
+
+  twoNumbersComparison.maiorNumero = highestNumber
+  twoNumbersComparison.maiorDivisivelPorMenor = highestNumber % lowestNumber === 0
+  twoNumbersComparison.diferenca = highestNumber - lowestNumber
+
+  return(twoNumbersComparison)
 }
 
 // EXERCÍCIO 10
