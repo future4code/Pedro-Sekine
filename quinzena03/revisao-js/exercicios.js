@@ -120,10 +120,36 @@ function comparaDoisNumeros(num1, num2) {
   return(twoNumbersComparison)
 }
 
-// EXERCÍCIO 10
+// EXERCÍCIO 10 ✅
 function segundoMaiorEMenor(array) {
-  
-}
+  let highestNumber = -Infinity
+  let lowestNumber = Infinity
+  let secondhighestNumber = -Infinity
+  let secondlowestNumber = Infinity
+
+  array.filter(item => {
+    if (item >= highestNumber){
+      secondhighestNumber = highestNumber
+      highestNumber = item
+    } else if (item < highestNumber && item > secondhighestNumber) {
+      secondhighestNumber = item
+    }
+    return(secondhighestNumber)
+  })
+
+  array.filter(item => {
+    if (item <= lowestNumber){
+      secondlowestNumber = lowestNumber
+      lowestNumber = item
+    } else if (item > lowestNumber && item < secondlowestNumber) {
+      secondlowestNumber = item
+    }
+    return(secondlowestNumber)
+  })
+
+  const newArray = [secondhighestNumber, secondlowestNumber]
+  return(newArray)
+  }
 
 // EXERCÍCIO 11
 function ordenaArray(array) {
