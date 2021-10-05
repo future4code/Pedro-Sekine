@@ -38,9 +38,9 @@ function retornaMaiorNumero(array) {
   return(highestNumber)
 }
 
-// EXERCÍCIO 05
+// EXERCÍCIO 05 ✅
 function retornaQuantidadeElementos(array) {
-  
+  return(array.length)
 }
 
 // EXERCÍCIO 06
