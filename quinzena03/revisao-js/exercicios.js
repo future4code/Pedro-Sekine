@@ -25,9 +25,17 @@ function retornaNumerosPares(array) {
     return(arrayOnlyEven)
 }
 
-// EXERCÍCIO 04
+// EXERCÍCIO 04 ✅
 function retornaMaiorNumero(array) {
+  let highestNumber = null
 
+  for (item of array) {
+    if (item > highestNumber){
+      highestNumber = item
+    }
+  }
+
+  return(highestNumber)
 }
 
 // EXERCÍCIO 05
