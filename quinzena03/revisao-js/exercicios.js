@@ -11,9 +11,11 @@ function inverteArray(array) {
   return(invertedArray)
 }
 
-// EXERCÍCIO 02 
+// EXERCÍCIO 02 ✅
 function retornaNumerosParesElevadosADois(array) {
-
+    const arrayEvenSquare = array.filter((item) => {return(item % 2 === 0)}).map(item => {return(item**2)})
+    
+    return(arrayEvenSquare)
 }
 
 // EXERCÍCIO 03 
