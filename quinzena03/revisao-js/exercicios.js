@@ -43,7 +43,7 @@ function retornaQuantidadeElementos(array) {
   return(array.length)
 }
 
-// EXERCÍCIO 06
+// EXERCÍCIO 06 ✅
 function retornaExpressoesBooleanas() {
   const booleano1 = true
   const booleano2 = false
@@ -61,19 +61,27 @@ function retornaExpressoesBooleanas() {
   return(booleanOperations)
 }
 
-// EXERCÍCIO 07
+// EXERCÍCIO 07 ✅
 function retornaNNumerosPares(n) {
+  const arrayEven = []
 
+  for (let i = 0; n > arrayEven.length; i++) {
+    arrayEven[i] = i * 2
+  }
+
+  return(arrayEven)
 }
 
-// EXERCÍCIO 08
+
+// EXERCÍCIO 08 ✅
 function checaTriangulo(a, b, c) {
   // return 'Escaleno'
   // return 'Equilátero'
   // return 'Isósceles'
+  
 }
 
-// EXERCÍCIO 09
+// EXERCÍCIO 09 ✅
 function comparaDoisNumeros(num1, num2) {
   // Formato do objeto a ser retornado:
   // {
@@ -81,11 +89,12 @@ function comparaDoisNumeros(num1, num2) {
   //   maiorDivisivelPorMenor: Y,
   //   diferenca: Z
   // }
+
 }
 
 // EXERCÍCIO 10
 function segundoMaiorEMenor(array) {
-
+  
 }
 
 // EXERCÍCIO 11
