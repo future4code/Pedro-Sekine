@@ -18,9 +18,11 @@ function retornaNumerosParesElevadosADois(array) {
     return(arrayEvenSquare)
 }
 
-// EXERCÍCIO 03 
+// EXERCÍCIO 03 ✅
 function retornaNumerosPares(array) {
-
+    const arrayOnlyEven = array.filter(item => {return(item % 2 === 0)})
+  
+    return(arrayOnlyEven)
 }
 
 // EXERCÍCIO 04
