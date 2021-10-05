@@ -1,0 +1,30 @@
+Quais são os 7 passos fundamentais para a resolução de problemas e 
+como eles podem nos ajudar a solucionar nossos desafios de programação?
+
+1. Ler o Enunciado
+    Apesar de parecer óbvio, o primeiro passo é ler, com atenção, o exercício proposto.
+    Entender "o que é que está sendo pedido", por exemplo, é importante nesse passo.
+
+2. Destacar elementos essenciais para a resolução
+    Aqui é passar o pente fino no texto. Se vermos verbos, entendre eles como funções. Se vermos condições,
+    já ficar de olho no uso de condicionais. Se identificarmos características de um substantivo, ficar de
+    olho no uso de objetos. E, claro, ao pensaroms em listas, pensamos em Arrays. 
+
+3. Pensar em entradas e saídas
+    Aqui, é importante pensar em casos que seriam contemplados ou não pelo código. Pensar em corner cases e 
+    qualquer outra situação que tenha que passar nos testes.
+
+4. Desenhar uma resposta
+    Seja por meio de um fluxograma ou de bullet points, o ponto é resolver o problema mesmo que sem código.
+    Se eu não conseguir visualizar a resolução, não vou conseguir programar ela. É simples assim.
+
+5. Criar um código "feio"
+    Resolver o problema, sem grande preocupação sobre nome de variáveis ou sobre performance. O importante
+    nesse passo é garantir que o código foi escrito.
+
+6. Testar o código
+    Com os exemplos criados no passo 3, agora é a hora de entender se está tudo certo ou se alterações
+    precisam ser feitas.
+
+7. Refatorar
+    Hora de fazer com que o código feio ganhe eficiência e seja mais legível! 
