@@ -222,7 +222,7 @@ function criaRetangulo(lado1, lado2) {
     return(rectangleProperties)
 }
 
-// EXERCÍCIO 15
+// EXERCÍCIO 15 ✅
 function anonimizaPessoa(pessoa) {
   pessoa.nome = "ANÔNIMO"
   return(pessoa)
@@ -230,12 +230,22 @@ function anonimizaPessoa(pessoa) {
 
 // EXERCÍCIO 16A
 function maioresDe18(arrayDePessoas) {
-
+  const adults = arrayDePessoas.filter((item) => {
+    if (item.idade >= 18) {
+      return(item)
+    }
+  })
+  return adults
 }
 
 // EXERCÍCIO 16B
 function menoresDe18(arrayDePessoas) {
-
+  const underage = arrayDePessoas.filter(pessoa => {
+    if (pessoa.idade < 18) {
+      return(pessoa)
+    }
+  })
+  return(underage)
 }
 
 // EXERCÍCIO 17A
