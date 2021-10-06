@@ -277,9 +277,17 @@ function verificaParidade(array) {
   return(parityNumbersArray)
 }
 
-// EXERCÍCIO 18A
+// EXERCÍCIO 18A ✅
 function retornaPessoasAutorizadas(pessoas) {
+  let authorizedPeople 
+  authorizedPeople = pessoas.filter(pessoa => {
+    if (pessoa.altura >= 1.5 && pessoa.idade > 14 && pessoa.idade < 60) {
+      
+      return(pessoa)
+    }
+  })
 
+  return(authorizedPeople)
 }
 
 // EXERCÍCIO 18B
