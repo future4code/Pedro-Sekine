@@ -290,9 +290,14 @@ function retornaPessoasAutorizadas(pessoas) {
   return(authorizedPeople)
 }
 
-// EXERCÍCIO 18B
+// EXERCÍCIO 18B ✅
 function retornaPessoasNaoAutorizadas(pessoas) {
-
+  const notAuthorizedPeople = pessoas.filter(pessoa => {
+    if (pessoa.altura < 1.5 || pessoa.idade <=14 || pessoa.idade >= 60){
+      return(pessoa)
+    }
+  })
+  return(notAuthorizedPeople)
 }
 
 // EXERCÍCIO 19A
