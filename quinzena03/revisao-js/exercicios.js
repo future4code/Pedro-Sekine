@@ -210,9 +210,16 @@ function imprimeChamada() {
   return(chamada)
 }
 
-// EXERCÍCIO 14
+// EXERCÍCIO 14 ✅
 function criaRetangulo(lado1, lado2) {
+  const rectangleProperties = {
+    largura: lado1,
+    altura: lado2,
+    perimetro: 2 * (lado1 + lado2),
+    area: lado1 * lado2
+  }
 
+    return(rectangleProperties)
 }
 
 // EXERCÍCIO 15
