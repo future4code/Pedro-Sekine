@@ -265,9 +265,16 @@ function multiplicaArrayPor2S(array) {
   return(multipliedArray)
 }
 
-// EXERCÍCIO 17C
+// EXERCÍCIO 17C ✅
 function verificaParidade(array) {
-
+  const parityNumbersArray = array.map(number =>{
+    if (number % 2 === 0) {
+      return(`${number} é par`)
+    } else {
+      return(`${number} é ímpar`)
+    }
+  })
+  return(parityNumbersArray)
 }
 
 // EXERCÍCIO 18A
