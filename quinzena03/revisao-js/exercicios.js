@@ -201,7 +201,7 @@ function filmeFavorito() {
   return(filmeFavoritoAstrodev)
 }
 
-// EXERCÍCIO 13
+// EXERCÍCIO 13 
 function imprimeChamada() {
   // "Venha assistir ao filme NOME_DO_FILME, de ANO, dirigido por DIRECAO e estrelado por ELENCO."
   const filmeDaChamada = filmeFavorito()
