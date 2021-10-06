@@ -255,9 +255,14 @@ function multiplicaArrayPor2(array) {
   return(multipliedArray)
 }
 
-// EXERCÍCIO 17B
+// EXERCÍCIO 17B ✅
 function multiplicaArrayPor2S(array) {
-
+  const multipliedArray = array.map(item => {
+    const itemStringTimesTwo = (item * 2).toString()
+    return(itemStringTimesTwo)
+  })
+  
+  return(multipliedArray)
 }
 
 // EXERCÍCIO 17C
