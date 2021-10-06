@@ -120,7 +120,7 @@ function comparaDoisNumeros(num1, num2) {
   return(twoNumbersComparison)
 }
 
-// EXERCÍCIO 10 ✅
+// EXERCÍCIO 10 ✅ 🟡 qual é a forma mais eficiente de fazer isso?
 function segundoMaiorEMenor(array) {
   let highestNumber = -Infinity
   let lowestNumber = Infinity
@@ -151,19 +151,63 @@ function segundoMaiorEMenor(array) {
   return(newArray)
   }
 
-// EXERCÍCIO 11
+// EXERCÍCIO 11 ✅ 🟡 Qual é a forma mais eficiente de fazer isso? 
 function ordenaArray(array) {
+  const newArray = []
+  let arrayLeft = array
+  let lowestNumber = Infinity
+  let arrayDiscart = array
+  let arraySize = array.length
 
+  for (let i = 0; i < arraySize; i++){
+    arrayDiscart.filter(item => {
+
+      if (item < lowestNumber) {
+        lowestNumber = item
+      }
+      return(lowestNumber)
+    })
+  
+    newArray.push(lowestNumber)
+
+    let indexToSplice = array.indexOf(lowestNumber)
+    arrayLeft.splice(indexToSplice, 1)
+    arrayDiscart = arrayLeft
+
+
+
+    console.log("lowestNumber", lowestNumber)
+    console.log("newArray", newArray) // teste
+    console.log("indexToSplice",indexToSplice)
+    console.log("arrayLeft", arrayLeft)
+    console.log("arrayDiscart", arrayDiscart)
+    console.log(array)
+    console.log(array.length)
+    console.log(i)
+
+    lowestNumber = Infinity
+  }
+ return(newArray)
 }
 
-// EXERCÍCIO 12
+// EXERCÍCIO 12 ✅
 function filmeFavorito() {
-
+  const filmeFavoritoAstrodev = {
+    nome: "O Diabo Veste Prada",
+    ano: 2006,
+    diretor: "David Frankel",
+    atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci'],
+  }
+  return(filmeFavoritoAstrodev)
 }
 
 // EXERCÍCIO 13
 function imprimeChamada() {
   // "Venha assistir ao filme NOME_DO_FILME, de ANO, dirigido por DIRECAO e estrelado por ELENCO."
+  const filmeDaChamada = filmeFavorito()
+
+  const chamada = `Venha assistir ao filme ${filmeDaChamada.nome}, de ${filmeDaChamada.ano}, dirigido por ${filmeDaChamada.diretor} e estrelado por ${filmeDaChamada.atores[0]}, ${filmeDaChamada.atores[1]}, ${filmeDaChamada.atores[2]}, ${filmeDaChamada.atores[3]}.`
+  return(chamada)
 }
 
 // EXERCÍCIO 14
