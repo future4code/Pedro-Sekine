@@ -135,3 +135,28 @@
   
 //   }
   
+
+const verityPrimeNumber = (number) => {
+    for (let i = 2 ; number % i !== 0; i++) {
+        if (number % i === 0) {
+            return(`${number} não é primo. Uma prova disso é que ele é divisível por ${i}`)
+        } else if (i === number) {
+            return(`${number} é primo`)
+        }
+    }
+}
+
+console.log(verityPrimeNumber(2))
+console.log(verityPrimeNumber(3))
+console.log(verityPrimeNumber(5))
+console.log(verityPrimeNumber(7))
+console.log(verityPrimeNumber(11))
+console.log(verityPrimeNumber(13))
+console.log(verityPrimeNumber(17))
+console.log(verityPrimeNumber(19))
+console.log(verityPrimeNumber(23))
+console.log(verityPrimeNumber(29))
+console.log(verityPrimeNumber(31))
+console.log(verityPrimeNumber(37))
+console.log(verityPrimeNumber(109))
+console.log(verityPrimeNumber(449))

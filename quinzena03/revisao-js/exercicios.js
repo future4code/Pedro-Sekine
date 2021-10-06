@@ -300,8 +300,27 @@ function retornaPessoasNaoAutorizadas(pessoas) {
   return(notAuthorizedPeople)
 }
 
-// EXERCÍCIO 19A
+// EXERCÍCIO 19A ✅ 🟡 Qual é a forma mais eficiente de fazer isso? 
 function ordenaPorNome(consultasNome) {
+  
+  let lastPatient = {
+    nome: ""
+  }
+  const newOrder = []
+
+  while (consultasNome.length > 0){
+
+    for (patient of consultasNome) {
+      if (patient.nome > lastPatient.nome){
+        lastPatient = patient
+      } 
+    }
+    newOrder[consultasNome.length - 1] = lastPatient
+    consultasNome.splice(consultasNome.indexOf(lastPatient), 1)
+    lastPatient = {nome: ""}
+    console.log(consultasNome.length)
+  }
+  return(newOrder)
 
 }
 
@@ -313,4 +332,16 @@ function ordenaPorData(consultasData) {
 // EXERCÍCIO 20
 function calculaSaldo(contas) {
 
+}
+
+// Challenge do dia 06 de outubro - Função para verificar se o número é primo
+const verityPrimeNumber = (numero) => {
+  
+  for (let i = 2 ; i <= numero; i++) {
+      if (numero % i === 0 && numero !== i) {
+          return(`${numero} não é primo. Uma prova disso é que ele é divisível por ${i}`)
+      } else if (i === numero) {
+          return(`${numero} é primo`)
+      }
+  }
 }
