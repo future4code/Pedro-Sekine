@@ -224,7 +224,8 @@ function criaRetangulo(lado1, lado2) {
 
 // EXERCÍCIO 15
 function anonimizaPessoa(pessoa) {
-
+  pessoa.nome = "ANÔNIMO"
+  return(pessoa)
 }
 
 // EXERCÍCIO 16A
