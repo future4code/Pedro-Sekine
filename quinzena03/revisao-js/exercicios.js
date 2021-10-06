@@ -248,9 +248,11 @@ function menoresDe18(arrayDePessoas) {
   return(underage)
 }
 
-// EXERCÍCIO 17A
+// EXERCÍCIO 17A ✅
 function multiplicaArrayPor2(array) {
-
+  const multipliedArray = array.map(item => {return(item * 2)})
+  
+  return(multipliedArray)
 }
 
 // EXERCÍCIO 17B
