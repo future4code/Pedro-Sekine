@@ -174,17 +174,6 @@ function ordenaArray(array) {
     arrayLeft.splice(indexToSplice, 1)
     arrayDiscart = arrayLeft
 
-
-
-    console.log("lowestNumber", lowestNumber)
-    console.log("newArray", newArray) // teste
-    console.log("indexToSplice",indexToSplice)
-    console.log("arrayLeft", arrayLeft)
-    console.log("arrayDiscart", arrayDiscart)
-    console.log(array)
-    console.log(array.length)
-    console.log(i)
-
     lowestNumber = Infinity
   }
  return(newArray)
@@ -339,8 +328,6 @@ function ordenaPorData(consultasData) {
         position++
       }
     }
-    console.log("position", position)
-    console.log(`consultasData[${i}]`, consultasData[i])
 
     appointmentsByDate[position] = consultasData[i]
   }
@@ -353,9 +340,17 @@ function ordenaPorData(consultasData) {
 
 }
 
-// EXERCÍCIO 20
+// EXERCÍCIO 20 ✅
 function calculaSaldo(contas) {
-
+  const updatedBalance = contas.map((value, index, array) => {
+    let totalSpent = 0
+    for (purchase of value.compras) {
+      totalSpent += purchase
+    }
+    value.saldoTotal = value.saldoTotal - totalSpent
+    return(value)
+  })
+  return(contas)
 }
 
 // Challenge do dia 06 de outubro - Função para verificar se o número é primo
