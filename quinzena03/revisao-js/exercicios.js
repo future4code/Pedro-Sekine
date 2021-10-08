@@ -97,11 +97,7 @@ function comparaDoisNumeros(num1, num2) {
   //   diferenca: Z
   // }
 
-  const twoNumbersComparison = {
-    maiorNumero: null,
-    maiorDivisivelPorMenor: null,
-    diferenca: null
-  }
+  const twoNumbersComparison = {}
   let highestNumber
   let lowestNumber
 
@@ -120,63 +116,94 @@ function comparaDoisNumeros(num1, num2) {
   return(twoNumbersComparison)
 }
 
-// EXERCÍCIO 10 ✅ 🟡 qual é a forma mais eficiente de fazer isso?
+// EXERCÍCIO 10 ✅ 
 function segundoMaiorEMenor(array) {
-  let highestNumber = -Infinity
-  let lowestNumber = Infinity
-  let secondhighestNumber = -Infinity
-  let secondlowestNumber = Infinity
+  // let highestNumber = -Infinity
+  // let lowestNumber = Infinity
+  // let secondhighestNumber = -Infinity
+  // let secondlowestNumber = Infinity
 
-  array.filter(item => {
-    if (item >= highestNumber){
-      secondhighestNumber = highestNumber
-      highestNumber = item
-    } else if (item < highestNumber && item > secondhighestNumber) {
-      secondhighestNumber = item
-    }
-    return(secondhighestNumber)
-  })
+  // array.filter(item => {
+  //   if (item >= highestNumber){
+  //     secondhighestNumber = highestNumber
+  //     highestNumber = item
+  //   } else if (item < highestNumber && item > secondhighestNumber) {
+  //     secondhighestNumber = item
+  //   }
+  //   return(secondhighestNumber)
+  // })
 
-  array.filter(item => {
-    if (item <= lowestNumber){
-      secondlowestNumber = lowestNumber
-      lowestNumber = item
-    } else if (item > lowestNumber && item < secondlowestNumber) {
-      secondlowestNumber = item
-    }
-    return(secondlowestNumber)
-  })
+  // array.filter(item => {
+  //   if (item <= lowestNumber){
+  //     secondlowestNumber = lowestNumber
+  //     lowestNumber = item
+  //   } else if (item > lowestNumber && item < secondlowestNumber) {
+  //     secondlowestNumber = item
+  //   }
+  //   return(secondlowestNumber)
+  // })
 
-  const newArray = [secondhighestNumber, secondlowestNumber]
-  return(newArray)
-  }
+  // const newArray = [secondhighestNumber, secondlowestNumber]
+  // return(newArray)
 
-// EXERCÍCIO 11 ✅ 🟡 Qual é a forma mais eficiente de fazer isso? 
-function ordenaArray(array) {
+  // Tentativa mais simples 2️⃣
+
   const newArray = []
-  let arrayLeft = array
-  let lowestNumber = Infinity
-  let arrayDiscart = array
-  let arraySize = array.length
 
-  for (let i = 0; i < arraySize; i++){
-    arrayDiscart.filter(item => {
-
-      if (item < lowestNumber) {
-        lowestNumber = item
+  for (value of array) {
+    let positionArray = 0
+    for (comparedvalue of array) {
+      if (value > comparedvalue) {
+        positionArray ++
       }
-      return(lowestNumber)
-    })
-  
-    newArray.push(lowestNumber)
+    }
 
-    let indexToSplice = array.indexOf(lowestNumber)
-    arrayLeft.splice(indexToSplice, 1)
-    arrayDiscart = arrayLeft
-
-    lowestNumber = Infinity
+    newArray[positionArray] = value
   }
- return(newArray)
+  return([newArray[newArray.length - 2], newArray[1]])
+
+  }
+
+// EXERCÍCIO 11 ✅
+function ordenaArray(array) {
+//   const newArray = []
+//   let arrayLeft = array
+//   let lowestNumber = Infinity
+//   let arrayDiscart = array
+//   let arraySize = array.length
+
+//   for (let i = 0; i < arraySize; i++){
+//     arrayDiscart.filter(item => {
+
+//       if (item < lowestNumber) {
+//         lowestNumber = item
+//       }
+//       return(lowestNumber)
+//     })
+  
+//     newArray.push(lowestNumber)
+
+//     let indexToSplice = array.indexOf(lowestNumber)
+//     arrayLeft.splice(indexToSplice, 1)
+//     arrayDiscart = arrayLeft
+
+//     lowestNumber = Infinity
+//   }
+//  return(newArray)
+
+// Tentativa mais simples 2️⃣
+
+  const newArray = []
+  for (value of array) {
+    let positionArray = 0
+    for (comparedvalue of array) {
+      if (value > comparedvalue) {
+        positionArray++
+      }
+    }
+    newArray[positionArray] = value
+  }
+  return(newArray)
 }
 
 // EXERCÍCIO 12 ✅
