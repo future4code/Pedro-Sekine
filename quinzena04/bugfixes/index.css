@@ -160,3 +160,11 @@ td button {
 .button-purchase:hover {
     background-color: #bfa948;
 }
+
+.search-field {
+    border-bottom: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+}
