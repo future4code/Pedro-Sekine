@@ -138,8 +138,11 @@ td button {
     background-color: #635a3d
 }
 
-.centered-text.text {
+.centered-text {
     text-align: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .image {
@@ -169,3 +172,4 @@ td button {
     border-right: none;
 
 }
+
