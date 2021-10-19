@@ -133,3 +133,8 @@ td button {
 .centered-text.text {
     text-align: center;
 }
+
+.image {
+    height: 45px;
+    width: 45px;
+}
