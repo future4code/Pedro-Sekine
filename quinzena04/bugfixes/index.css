@@ -57,7 +57,14 @@ div img {
 }
 
 .icone {
-    height: 15px;
+    height: 20px;
+    width: auto;
+    background-color: white; 
+    vertical-align: middle;
+
+    /* esse background-color foi migué */
+    /* margin-top: auto;
+    margin-bottom: auto; */
 }
 
 
@@ -138,3 +145,11 @@ td button {
     height: 45px;
     width: 45px;
 }
+
+.search-div {
+    /* height: 99%;
+    margin-top: auto;
+    margin-bottom: auto; */
+    /* vertical-align: baseline; */
+}
+
