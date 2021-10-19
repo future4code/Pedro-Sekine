@@ -153,3 +153,10 @@ td button {
     /* vertical-align: baseline; */
 }
 
+.button-purchase:active {
+    color: white;
+}
+
+.button-purchase:hover {
+    background-color: #bfa948;
+}
