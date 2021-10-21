@@ -146,3 +146,12 @@ ul {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
+
+.shadow-header {
+    margin-top: 100px;
+}
+
+/* 
+- Fazer formulário
+- Lista que armazena envios
+*/
