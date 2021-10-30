@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adicionar Produto</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <p class="cabecalho">postiteria</p>
+    </div>
+
+    <div class="shadow-header">
+        <h1 class="degrade">Adicionar Produto</h1>
+    </div>
+    
+    <div>
+        <a class="botao" href="index.html">Página Inicial</a>
+        <a class="botao" href="ctrl-estoque.html">Controle de Estoque</a>
+        <a class="botao" href="add-produto.html">Adicionar Produto</a>
+        <a class="botao" href="funcionarios.html">Funcionários</a>
+        <a class="botao" href="vendas.html">Nova Venda</a>
+        <a class="botao" href="historico.html">Histórico</a>
+    </div>
+
+    
+    <h2 class="degrade">Preencha o formulário</h2>
+
+    <form action="">
+        <div class="center-form">
+        <div class="fonte form">
+            <label for="link-foto">Link para foto: </label>
+            <input class="input" type="url" id="link-foto" name="link-foto">
+        </div>
+        
+        <div class="fonte form">
+            <label for="descricao">Descrição do produto: </label>
+            <!-- Adicione o id apropriado para o input abaixo -->
+            <input class="input" type="text" id="descricao" name="descrição">
+        </div>
+        
+        <div class="fonte form">
+            <label for="preco">Preço (em R$): </label>
+            <!-- Adicione o id apropriado e o type para receber números abaixo -->
+            <input class="input" type="number" id="preco" name="preço">
+        </div>
+        
+        <div class="fonte form">
+            <!-- Preencha as propriedades necessárias para os elementos abaixo -->
+            <label for="quantidade">Quantidade disponível: </label>
+            <input class="input" type="number" id="quantidade" name="quantidade-disponivel">
+        </div>
+
+        <div class="form-add">
+            <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
+            <button class="button input button-margin" type="submit">Adicionar</button>
+        </div>
+        </div>
+    </form>
+    <div class="footer">
+        <div class="column1">
+            <a href="https://pt-br.facebook.com/3M/" target="blank"><img class="social-media-icon" src="https://image.flaticon.com/icons/png/512/25/25305.png"/></a>
+            
+        </div>
+        <div class="column2">
+            <a href="https://www.instagram.com/3mbrasil/?hl=en" target="blank"><img class="social-media-icon" src="https://image.flaticon.com/icons/png/512/25/25425.png"/></a>
+        </div>
+        <div class="column3">
+            <a href="https://twitter.com/3M?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="blank"><img class="social-media-icon" src="https://image.flaticon.com/icons/png/512/8/8800.png"/></a>
+        </div>
+    </div>
+</body>
+</html>
