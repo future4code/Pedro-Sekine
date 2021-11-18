@@ -9,11 +9,8 @@ import iconeComentario from '../../img/comment_icon.svg'
 import iconeSalvarPreto from '../../img/bookmark_black_24dp.svg'
 import iconeSalvarBranco from '../../img/bookmark_border_black_24dp.svg'
 import iconeCompartilhar from '../../img/ios_share_black_24dp.svg'
-import iconeFacebook from '../../img/facebook-app-logo.png'
-import iconeInstagram from '../../img/instagram (1).png'
-import iconeTwitter from '../../img/twitter-sign.png'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
-import {SocialIcon} from '../SocialIcon/SocialIcon'
+import {SecaoShare} from '../SecaoShare/SecaoShare'
 
 const SocialContainer = styled.div `
   display: flex;
@@ -60,6 +57,8 @@ class Post extends React.Component {
     numeroComentarios: 0,
     salvo: false,
     compartilhamento: false,
+    nome: ''
+    // comentandoShare: false, // relevante?
   }
 
   onClickCurtida = () => {
@@ -110,17 +109,12 @@ o input de texto para o usuário que está navegando pela tela.  */
     })
   }
 
-  onClickIconeFacebook = () => {
-    console.log('Post compartilhado no Facebook')
-  }
-  
-  onClickIconeInstagram = () => {
-    console.log('Post compartilhado no Instagram')
+  aoEnviarShare = () => {
+    this.setState({
+      compartilhamento: false
+    })
   }
 
-  onClickIconeTwitter = () => {
-    console.log('Post compartilhado no Twitter')
-  }
 
   render() {
     let iconeCurtida
@@ -146,27 +140,12 @@ o input de texto para o usuário que está navegando pela tela.  */
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
 
+    let comentandoShare
+  
     let componenteCompartilhamento
 
     if (this.state.compartilhamento) {
-      componenteCompartilhamento = 
-      <SocialContainer>
-        <SocialIcon
-          nome='Facebook'
-          icone={iconeFacebook}
-          onClickIcone={this.onClickIconeFacebook}
-        />
-        <SocialIcon
-          nome='Instagram'
-          icone={iconeInstagram}
-          onClickIcone={this.onClickIconeInstagram}
-        />
-        <SocialIcon
-          nome='Twitter'
-          icone={iconeTwitter}
-          onClickIcone={this.onClickIconeTwitter}
-        />
-        </SocialContainer>
+      comentandoShare = <SecaoShare aoEnviar={this.aoEnviarShare} /> // 🔴
     }
 
   // Essa condicional dentro de um componente é uma novidade. Ela está dentro da declaração
@@ -209,7 +188,7 @@ o input de texto para o usuário que está navegando pela tela.  */
 
       </PostFooter>
       {componenteComentario}
-      {componenteCompartilhamento}
+      {comentandoShare}
     </PostContainer>
     )
   }
