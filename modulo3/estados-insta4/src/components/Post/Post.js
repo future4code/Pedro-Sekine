@@ -59,7 +59,7 @@ class Post extends React.Component {
     comentando: false,
     numeroComentarios: 0,
     salvo: false,
-    compartilhamento: false
+    compartilhamento: false,
   }
 
   onClickCurtida = () => {
@@ -110,8 +110,16 @@ o input de texto para o usuário que está navegando pela tela.  */
     })
   }
 
-  onClickIconeShare = () => {
+  onClickIconeFacebook = () => {
     console.log('Post compartilhado no Facebook')
+  }
+  
+  onClickIconeInstagram = () => {
+    console.log('Post compartilhado no Instagram')
+  }
+
+  onClickIconeTwitter = () => {
+    console.log('Post compartilhado no Twitter')
   }
 
   render() {
@@ -146,17 +154,17 @@ o input de texto para o usuário que está navegando pela tela.  */
         <SocialIcon
           nome='Facebook'
           icone={iconeFacebook}
-          onClickIcone={this.onClickIconeShare}
+          onClickIcone={this.onClickIconeFacebook}
         />
         <SocialIcon
           nome='Instagram'
           icone={iconeInstagram}
-          onClickIcone={this.onClickIconeShare}
+          onClickIcone={this.onClickIconeInstagram}
         />
         <SocialIcon
           nome='Twitter'
           icone={iconeTwitter}
-          onClickIcone={this.onClickIconeShare}
+          onClickIcone={this.onClickIconeTwitter}
         />
         </SocialContainer>
     }
