@@ -55,6 +55,7 @@ class Post extends React.Component {
     numeroCurtidas: 0,
     comentando: false,
     numeroComentarios: 0,
+    comentarioFinal: '',
     salvo: false,
     compartilhamento: false,
     nome: ''
@@ -102,21 +103,38 @@ o input de texto para o usuário que está navegando pela tela.  */
     })
   }
 
-  aoEnviarComentario = () => {
-    this.setState({
-      comentando: false,
-      numeroComentarios: this.state.numeroComentarios + 1,
-    })
-  }
-
   aoEnviarShare = () => {
     this.setState({
       compartilhamento: false
     })
   }
 
+  aoEnviarComentario = (valor) => {
+    this.setState({
+      numeroComentarios: this.state.numeroComentarios + 1,
+      comentarioFinal: valor
+    })
+    console.log(valor)
+
+  }
+
+ 
+
 
   render() {
+
+    let componenteComentario
+
+    /* Abaixo é possível ver a aplicação da função {aoEnviarComentario} */
+    if(this.state.comentando) {
+      componenteComentario = 
+      <div>
+      <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
+      <div>{this.state.comentarioFinal}</div>
+      </div>
+    }
+
+
     let iconeCurtida
 
     if(this.state.curtido) {
@@ -131,13 +149,6 @@ o input de texto para o usuário que está navegando pela tela.  */
       iconeSalvar = iconeSalvarPreto
     } else {
       iconeSalvar = iconeSalvarBranco
-    }
-
-    let componenteComentario
-
-    /* Abaixo é possível ver a aplicação da função {aoEnviarComentario} */
-    if(this.state.comentando) {
-      componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
 
     let comentandoShare

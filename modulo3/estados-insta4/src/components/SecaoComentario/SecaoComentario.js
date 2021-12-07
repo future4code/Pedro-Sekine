@@ -19,17 +19,26 @@ export class SecaoComentario extends Component {
 	}
 
 	onChangeComentario = (event) => {
-		this.setState ({
-			value: event.target.value,
-		})
+		this.setState ({value: event.target.value})
 		console.log(event.target.value)
-		// 🔴 Muito estranho que o valor do console.log é sempre o do estado anterior
 	}
 
+	handleOnClick = () => {
+		this.props.aoEnviar(this.state.value)
+	}
+
+
 	render() {
-		return <CommentContainer>
-			<InputComentario placeholder={'Comentário'} value={this.state.value} onChange={this.onChangeComentario} />
-			<button onClick={this.props.aoEnviar}>Enviar</button>
-		</CommentContainer>
+
+		return ( 
+		<div>
+			<CommentContainer>
+				<InputComentario placeholder={'Comentário'} value={this.state.value} onChange={this.onChangeComentario} />
+				<button onClick={this.handleOnClick}>Enviar</button>
+			</CommentContainer>
+		</div>
+
+
+		)
 	}
 }
