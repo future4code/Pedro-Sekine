@@ -39,6 +39,11 @@ const StyleTrackCounter = styled.p`
   font-weight: 150;
 `
 
+const PlayButton = styled.div`
+  background-color: transparent;
+  
+`
+
 export class DetailsPlaylist extends React.Component {
   state = {
     trackCounter: "",
@@ -47,6 +52,7 @@ export class DetailsPlaylist extends React.Component {
 
   handleClickURL = (URL) => {
     console.log(URL)
+    this.props.handleClickURL(URL)
   }
 
   componentDidMount() {
@@ -75,9 +81,9 @@ export class DetailsPlaylist extends React.Component {
             <StyleTrackName>{track.name}</StyleTrackName>
             <p>{track.artist}</p>
           </div>
-          <button onClick={() => this.handleClickURL(track.url)}>
+          <PlayButton onClick={() => this.handleClickURL(track.url)}>
             <img src={IconPlay} />
-          </button>
+          </PlayButton>
         </StyleSong>
       );
     });

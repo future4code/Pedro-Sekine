@@ -6,8 +6,7 @@ const StyleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: black;
-  opacity: 0.7;
+  background-color: #434343e2;
   height: 100vh; 
   /* queria usar 100%, mas ainda não consegui */
 `;

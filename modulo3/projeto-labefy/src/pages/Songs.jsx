@@ -9,8 +9,7 @@ const UpperMenu = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  background-color: black;
-  opacity: 0.7;
+  background-color: #434343e2;
 `;
 
 const AddSongButton = styled.div`
@@ -26,7 +25,7 @@ const StyleSong = styled.div`
 
 const StyleTrackName = styled.p`
   font-weight: bold;
-`
+`;
 
 export class Songs extends React.Component {
   state = {
@@ -40,12 +39,6 @@ export class Songs extends React.Component {
 
   componentDidMount() {
     this.getAllPlaylists();
-
-    this.setState({
-      songList: JSON.parse(localStorage.getItem("songListStorage")),
-    });
-
-    console.log("localStorage funcionou?", this.state.songList);
   }
 
   getAllPlaylists = () => {
@@ -59,11 +52,24 @@ export class Songs extends React.Component {
         }
       )
       .then((response) => {
-        this.setState({
-          playlistList: response.data.result.list,
-        });
-        console.log("this.state.playlistList", this.state.playlistList);
-        console.log("response GET", response);
+        console.log("response", response);
+        const playlistList = Promise.all(
+          response.data.result.list.map((playlist) => {
+            axios
+              .get(
+                `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlist.id}/tracks`,
+                {
+                  headers: {
+                    Authorization: "pedro-sekine-joy",
+                  },
+                }
+              )
+              .then((res) => {
+                console.log("res", res.data.result.tracks);
+                return res.data.result.tracks;
+              });
+          })
+        ).then(() => console.log(playlistList));
       })
       .catch((error) => {
         console.log(error);
@@ -125,11 +131,6 @@ export class Songs extends React.Component {
       // songList: [body, ...this.state.songList],
     });
 
-    localStorage.setItem(
-      "songListStorage",
-      JSON.stringify(this.state.songList)
-    );
-
     console.log("songList", this.state.songList);
   };
 
@@ -154,11 +155,11 @@ export class Songs extends React.Component {
             </AddSongButton>
           </UpperMenu>
           {/* <div>{renderedSongList}</div> */}
-          <LowerMenu
+          {/* <LowerMenu
             onClickSongs={this.props.onClickSongs}
             onClickPlaylists={this.props.onClickPlaylists}
             currentPage={this.props.currentPage}
-          />
+          /> */}
         </div>
       );
     } else if (this.state.whichComponentShow === "newSong") {

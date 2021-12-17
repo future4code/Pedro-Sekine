@@ -1,11 +1,58 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import styled from "styled-components";
+import { LowerMenu } from "./components/LowerMenu";
 import { Playlists } from "./pages/Playlists";
 import { Songs } from "./pages/Songs";
+import PauseButtom from "./images/pause_white_24dp.svg";
+import PlayButtom from "./images/play_arrow_white_24dp.svg";
 
 const StyleContainer = styled.div`
   height: 100%;
+`;
+
+const HidePlayer = styled.div`
+  display: none;
+`;
+
+const SongPlayer = styled.div`
+  position: fixed;
+  bottom: 77px;
+  background-color: #434343e2;
+  width: 100%;
+  padding: 1rem;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid white;
+  display: flex;
+  align-items: center;
+`;
+
+const ButtonPlayPause = styled.button`
+  background-color: transparent;
+  border: none;
+`;
+
+const InputStyle = styled.input`
+  width: 18rem;
+  -webkit-appearance: none;
+  border-radius: 5px;
+  height: 0.5rem;
+
+  ::-webkit-slider-runnable-track {
+    cursor: pointer;
+    border: none;
+  }
+
+  ::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    border: none;
+    background: #4c4cde;
+    cursor: pointer;
+  }
 `;
 
 class App extends React.Component {
@@ -34,6 +81,13 @@ class App extends React.Component {
   onClickPlaylists = () => {
     this.setState({
       pagina: "playlists",
+    });
+  };
+
+  handleClickURL = (URL) => {
+    this.setState({
+      url: URL,
+      playing: true,
     });
   };
 
@@ -177,6 +231,7 @@ class App extends React.Component {
           onClickSongs={this.onClickSongs}
           onClickPlaylists={this.onClickPlaylists}
           currentPage={this.state.pagina}
+          handleClickURL={this.handleClickURL}
         />
       );
     } else if (this.state.pagina === "songs") {
@@ -189,59 +244,75 @@ class App extends React.Component {
       );
     }
 
+    let songPlayerContainer;
+    if (this.state.url) {
+      songPlayerContainer = (
+        <SongPlayer>
+          <ButtonPlayPause onClick={this.handlePlayPause}>
+            {playing ? <img src={PauseButtom} /> : <img src={PlayButtom} />}
+          </ButtonPlayPause>
+          <InputStyle
+            type="range"
+            min={0}
+            max={0.999999}
+            step="any"
+            value={played}
+            onMouseDown={this.handleSeekMouseDown}
+            onChange={this.handleSeekChange}
+            onMouseUp={this.handleSeekMouseUp}
+          />
+        </SongPlayer>
+      );
+    }
+
     return (
       <StyleContainer>
-        <ReactPlayer
-          ref={this.ref}
-          className="react-player"
-          width="0%"
-          height="0%"
-          url={url}
-          pip={pip}
-          playing={playing}
-          controls={controls}
-          light={light}
-          loop={loop}
-          playbackRate={playbackRate}
-          volume={volume}
-          muted={muted}
-          onReady={() => console.log("onReady")}
-          onStart={() => console.log("onStart")}
-          onPlay={this.handlePlay}
-          onEnablePIP={this.handleEnablePIP}
-          onDisablePIP={this.handleDisablePIP}
-          onPause={this.handlePause}
-          onBuffer={() => console.log("onBuffer")}
-          onPlaybackRateChange={this.handleOnPlaybackRateChange}
-          onSeek={(e) => console.log("onSeek", e)}
-          onEnded={this.handleEnded}
-          onError={(e) => console.log("onError", e)}
-          onProgress={this.handleProgress}
-          onDuration={this.handleDuration}
-        />
-        <button onClick={this.handlePlayPause}>
-          {playing ? "Pause" : "Play"}
-        </button>
-        <input
-          type="range"
-          min={0}
-          max={0.999999}
-          step="any"
-          value={played}
-          onMouseDown={this.handleSeekMouseDown}
-          onChange={this.handleSeekChange}
-          onMouseUp={this.handleSeekMouseUp}
-        />
-        <input
+        <HidePlayer>
+          <ReactPlayer
+            ref={this.ref}
+            className="react-player"
+            width="0%"
+            height="0%"
+            url={url}
+            pip={pip}
+            playing={playing}
+            controls={controls}
+            light={light}
+            loop={loop}
+            playbackRate={playbackRate}
+            volume={volume}
+            muted={muted}
+            onReady={() => console.log("onReady")}
+            onStart={() => console.log("onStart")}
+            onPlay={this.handlePlay}
+            onEnablePIP={this.handleEnablePIP}
+            onDisablePIP={this.handleDisablePIP}
+            onPause={this.handlePause}
+            onBuffer={() => console.log("onBuffer")}
+            onPlaybackRateChange={this.handleOnPlaybackRateChange}
+            onSeek={(e) => console.log("onSeek", e)}
+            onEnded={this.handleEnded}
+            onError={(e) => console.log("onError", e)}
+            onProgress={this.handleProgress}
+            onDuration={this.handleDuration}
+          />
+        </HidePlayer>
+
+        {/* <input
           type="range"
           min={0}
           max={1}
           step="any"
           value={volume}
           onChange={this.handleVolumeChange}
-        />
-
+        /> */}
         {showPage}
+        {songPlayerContainer}
+        <LowerMenu
+          onClickSongs={this.onClickSongs}
+          onClickPlaylists={this.onClickPlaylists}
+          currentPage={this.state.pagina}
+        />
       </StyleContainer>
     );
   }

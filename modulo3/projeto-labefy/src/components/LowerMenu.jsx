@@ -13,7 +13,6 @@ const StyleIcons = styled.img`
 `;
 const StyleSelectedIcon = styled.img`
   background-color: #4c4cde;
-  opacity: 0.9;
   border-radius: 50%;
   padding: 0.5rem;
 `;
@@ -24,8 +23,7 @@ const StyleLowerMenu = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: black;
-  opacity: 0.7;
+  background-color: #434343e2;
 `;
 
 export class LowerMenu extends React.Component {
