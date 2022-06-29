@@ -15,7 +15,7 @@ export const GlobalState = (props) => {
     }, []);
 
     useEffect(() => {
-        console.log("shoppingCart foi atualizado!", shoppingCart);
+        // console.log("shoppingCart foi atualizado!", shoppingCart);
     }, [shoppingCart]);
 
     const updateUserInformation = async () => {

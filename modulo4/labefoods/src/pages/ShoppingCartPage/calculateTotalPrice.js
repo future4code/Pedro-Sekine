@@ -1,11 +1,11 @@
 export const calculateTotalPrice = (shoppingCart, deliveryPrice) => {
-    console.log("shoppingCart no calculateTotalPrice", shoppingCart);
-    console.log("deliveryPrice no calculateTotalPrice", deliveryPrice);
+    // console.log("shoppingCart no calculateTotalPrice", shoppingCart);
+    // console.log("deliveryPrice no calculateTotalPrice", deliveryPrice);
 
     const pricesArray = shoppingCart.map((item) => {
         return item.product.price * item.quantity;
     });
-    console.log("pricesArray para entender", pricesArray);
+    // console.log("pricesArray para entender", pricesArray);
 
     const initialValue = 0;
     const totalProductPrice = pricesArray.reduce(
@@ -13,7 +13,7 @@ export const calculateTotalPrice = (shoppingCart, deliveryPrice) => {
         initialValue
     );
 
-    console.log("totalProductPrice",totalProductPrice)
+    // console.log("totalProductPrice",totalProductPrice)
 
     const finalPrice = totalProductPrice + deliveryPrice
 

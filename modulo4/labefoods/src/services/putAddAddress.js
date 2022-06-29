@@ -10,7 +10,7 @@ export const putAddAddress = async (body) => {
                 "Content-Type": "application/json"
             }
         })
-        console.log("response do putAddAddress", response)
+        // console.log("response do putAddAddress", response)
         return response
     } catch(err) {
         console.log(err)

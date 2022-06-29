@@ -38,7 +38,7 @@ export const ProfilePage = () => {
 
     const profileBuilder = async () => {
         const profileData = await getProfile();
-        console.log("profileData", profileData);
+        // console.log("profileData", profileData);
         buildPersonalDataCard(profileData.data.user);
         const addressData = await getAddress();
         buildAddressCard(addressData.data.address);

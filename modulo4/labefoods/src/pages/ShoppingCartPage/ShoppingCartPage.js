@@ -98,17 +98,17 @@ export const ShoppingCartPage = () => {
             const restaurantDataRequest = await getRestaurantDetails(
                 states.currentRestaurant
             );
-            console.log(
-                "estou no buildRestaurantDataComponent",
-                restaurantDataRequest.data.restaurant
-            );
+            // console.log(
+            //     "estou no buildRestaurantDataComponent",
+            //     restaurantDataRequest.data.restaurant
+            // );
             setRestaurantData(restaurantDataRequest.data.restaurant);
         }
     };
 
     const handleChangePaymentMethod = (event) => {
         setPaymentMethod(event.target.value);
-        console.log("event.target.value", event.target.value);
+        // console.log("event.target.value", event.target.value);
     };
 
     const handleSubmit = async (event) => {
@@ -132,7 +132,7 @@ export const ShoppingCartPage = () => {
                 paymentMethod: paymentMethod
             }
             const restaurantId = states.currentRestaurant
-            console.log("body que vai ser enviado", body);
+            // console.log("body que vai ser enviado", body);
             
             const placeOrderRequest = await postPlaceOrder(body, restaurantId)
             if (placeOrderRequest.request.status === 200) {

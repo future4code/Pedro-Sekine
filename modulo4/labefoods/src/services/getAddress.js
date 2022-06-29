@@ -9,7 +9,7 @@ export const getAddress = async () => {
                 auth: token
             }
         })
-        console.log("response adress", response)
+        // console.log("response adress", response)
         return(response)
     } catch (err) {
         console.log(err)

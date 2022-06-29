@@ -13,7 +13,7 @@ export const putUpdateProfile = async (body) => {
                 "Content-Type": "application/json"
             }
         })
-        console.log("response", response)
+        // console.log("response", response)
         return response
     } catch (err) {
         console.log(err)

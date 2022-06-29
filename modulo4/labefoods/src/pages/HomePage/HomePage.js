@@ -68,7 +68,7 @@ export const HomePage = () => {
 
     const handleClickRestaurant = (id) => {
         goToRestaurant(navigate, id);
-        // console.log("entrou no handleClickRestaurante com o seguinte ID", id)
+        // console.log("entrou no handleClickRestaurante com o seguinte ID", id);
     };
 
     const handleChangeTab = (event, newActiveTab) => {
@@ -90,7 +90,11 @@ export const HomePage = () => {
             }
         });
         // console.log("filteredRestaurants", filteredRestaurants);
-        buildRestaurantComponent(filteredRestaurants, setRestaurantComponent);
+        buildRestaurantComponent(
+            filteredRestaurants,
+            setRestaurantComponent,
+            handleClickRestaurant
+        );
     };
 
     const handleChangeSearch = (event) => {
@@ -101,7 +105,11 @@ export const HomePage = () => {
                 .includes(event.target.value.toLowerCase());
         });
 
-        buildRestaurantComponent(filteredRestaurants, setRestaurantComponent);
+        buildRestaurantComponent(
+            filteredRestaurants,
+            setRestaurantComponent,
+            handleClickRestaurant
+        );
         // console.log("filteredRestaurants", filteredRestaurants);
     };
 

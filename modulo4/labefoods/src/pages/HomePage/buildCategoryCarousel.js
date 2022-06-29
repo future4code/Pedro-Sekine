@@ -13,7 +13,7 @@ export const buildCategoryCarousel = (
     const singleCategories = allCategories.filter((category, index) => {
         return allCategories.indexOf(category) === index;
     });
-    console.log("singleCategories", singleCategories);
+    // console.log("singleCategories", singleCategories);
     setCategories(singleCategories);
 
     const componentBuilder = singleCategories.map((category, index) => {

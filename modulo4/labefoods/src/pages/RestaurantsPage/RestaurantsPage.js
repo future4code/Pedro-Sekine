@@ -39,10 +39,10 @@ export const RestaurantsPage = () => {
 
     useEffect(() => {
         if (Object.keys(restaurantProductsInfo).length !== 0) {
-            console.log(
-                "estou aqui com o seguinte estado",
-                restaurantProductsInfo
-            );
+            // console.log(
+            //     "estou aqui com o seguinte estado",
+            //     restaurantProductsInfo
+            // );
 
             separateProductsByCategory(restaurantProductsInfo);
         }
@@ -96,7 +96,7 @@ export const RestaurantsPage = () => {
             localProductsComponent.push(categoryRestaurantsComponent);
         }
         setProductsComponent([...productsComponent, localProductsComponent]);
-        console.log("singleCategories", singleCategories);
+        // console.log("singleCategories", singleCategories);
     };
 
     return (

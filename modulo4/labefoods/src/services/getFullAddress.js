@@ -9,7 +9,7 @@ export const getFullAddress = async () => {
                 auth: token
             }
         })
-        console.log("response do getFullAddress", response)
+        // console.log("response do getFullAddress", response)
         return response
     } catch (err) {
         console.log(err)

@@ -10,7 +10,7 @@ export const getActiveOrder = async () => {
                 "Content-Type": "application/json"
             }
         }) 
-        console.log("response getActiveOrder", response)
+        // console.log("response getActiveOrder", response)
         return response
     } catch (err) {
         console.log(err)

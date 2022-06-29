@@ -10,7 +10,7 @@ export const getRestaurantDetails = async (id) => {
                 "Content-Type": "application/json"
             }
         })
-        console.log("response do getRestaurantDetails", response)
+        // console.log("response do getRestaurantDetails", response)
         return response
     } catch (err) {
         console.log(err)

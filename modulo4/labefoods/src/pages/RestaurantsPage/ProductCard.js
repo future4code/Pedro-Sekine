@@ -9,8 +9,8 @@ import { GlobalContext } from "../../global/GlobalContext";
 import { QuantitySelector } from "./QuantitySelector";
 
 export const ProductCard = (props) => {
-    const [open, setOpen] = React.useState(false);
-    const [quantity, setQuantity] = React.useState("");
+    const [open, setOpen] = useState(false);
+    const [quantity, setQuantity] = useState("");
 
     const [alreadyCart, setAlreadyCart] = useState(false);
     const { states, setters } = useContext(GlobalContext);
@@ -19,7 +19,9 @@ export const ProductCard = (props) => {
         for (let item of states.shoppingCart) {
             if (item.product.id === props.product.id) {
                 setAlreadyCart(true);
+                setQuantity(item.quantity)
             }
+            
         }
     }
 
@@ -47,11 +49,12 @@ export const ProductCard = (props) => {
         if (!filteredCart) {
             setters.setCurrentRestaurant(0);
         }
+        setQuantity("")
     };
 
     const handleChange = (event) => {
         setQuantity(Number(event.target.value) || "");
-        console.log("event.target.value", event.target.value);
+        // console.log("event.target.value", event.target.value);
     };
     const handleClickOpen = () => {
         setOpen(true);

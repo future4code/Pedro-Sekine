@@ -10,7 +10,7 @@ export const getRestaurants = async () => {
         "Content-Type": "application/json",
       },
     });
-    console.log(response.data.restaurants);
+    // console.log(response.data.restaurants);
     return response.data.restaurants;
   } catch (err) {
     console.log(err);

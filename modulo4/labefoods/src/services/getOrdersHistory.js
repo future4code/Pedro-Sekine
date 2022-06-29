@@ -10,7 +10,7 @@ export const getOrdersHistory = async () => {
                 "Content-Type": "application/json"
             }
         })
-        console.log("response", response)
+        // console.log("response", response)
         return response
     } catch (err) {
         console.log(err)
