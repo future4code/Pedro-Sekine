@@ -78,6 +78,7 @@ export const ShoppingCartPage = () => {
             const componentConstructor = states.shoppingCart.map((product) => {
                 return (
                     <ProductCard
+                        key={product.product.id}
                         product={product.product}
                         quantity={product.quantity}
                     />
@@ -140,6 +141,7 @@ export const ShoppingCartPage = () => {
 
             const placeOrderRequest = await postPlaceOrder(body, restaurantId);
             if (placeOrderRequest.request.status === 200) {
+                setters.setShoppingCart([])
                 setErrorMessage("Pedido feito com sucesso! Bom Apetite 😋");
             }
         }
@@ -227,7 +229,7 @@ export const ShoppingCartPage = () => {
                         sx={{
                             margin: "0.5rem 1rem",
                             height: "3rem",
-                            "text-transform": "none",
+                            textTransform: "none",
                             boxShadow: "none",
                         }}
                         variant="contained"

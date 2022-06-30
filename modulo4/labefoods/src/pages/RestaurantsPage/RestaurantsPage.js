@@ -76,6 +76,7 @@ export const RestaurantsPage = () => {
                 // console.log("categoria atual", category);
                 localProductsComponent.push(
                     <Typography
+                        key={category}
                         variant="h5"
                         component="div"
                         sx={{ margin: "2rem 0.5rem 0.3rem 0.5rem" }}
@@ -83,11 +84,12 @@ export const RestaurantsPage = () => {
                         {category}
                     </Typography>
                 );
-                localProductsComponent.push(<Divider />);
+                localProductsComponent.push(<Divider key={`${category}Divider`}/>);
                 const categoryRestaurantsComponent = categoryRestaurants.map(
                     (product) => {
                         return (
                             <ProductCard
+                                key={product.id}
                                 product={product}
                                 restaurantId={params.id}
                             />

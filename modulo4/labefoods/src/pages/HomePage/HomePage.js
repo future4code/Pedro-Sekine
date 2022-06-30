@@ -31,7 +31,7 @@ export const HomePage = () => {
     const [categories, setCategories] = useState([]);
     const [searchField, setSearchField] = useState("");
 
-    const [activeTab, setActiveTab] = useState(0);
+    const [activetab, setActivetab] = useState(0);
 
     const navigate = useNavigate();
 
@@ -55,7 +55,7 @@ export const HomePage = () => {
             restaurantsArray,
             setCategories,
             setCarouselComponent,
-            activeTab
+            activetab
         );
     };
 
@@ -64,22 +64,22 @@ export const HomePage = () => {
         // console.log("entrou no handleClickRestaurante com o seguinte ID", id);
     };
 
-    const handleChangeTab = (event, newActiveTab) => {
-        setActiveTab(newActiveTab);
+    const handleChangeTab = (event, newActivetab) => {
+        setActivetab(newActivetab);
 
         // console.log("allRestaurants para entender", allRestaurants);
-        // console.log("active tab", activeTab)
-        // console.log("newActiveTab", newActiveTab);
+        // console.log("active tab", activetab)
+        // console.log("newActivetab", newActivetab);
 
         const filteredRestaurants = allRestaurants.filter((restaurant) => {
             // console.log(restaurant.category);
-            if (newActiveTab === 0) {
+            if (newActivetab === 0) {
                 // console.log("entrei no zero")
                 return true;
             } else {
                 // console.log("entrei no um")
 
-                return restaurant.category === categories[newActiveTab - 1];
+                return restaurant.category === categories[newActivetab - 1];
             }
         });
         // console.log("filteredRestaurants", filteredRestaurants);
@@ -143,16 +143,16 @@ export const HomePage = () => {
                 <Tabs
                     // textColor="secondary"
                     indicatorColor="secondary"
-                    activeTab={activeTab}
-                    value={activeTab}
+                    activetab={activetab}
+                    value={activetab}
                     onChange={handleChangeTab}
                     variant="scrollable"
                     scrollButtons="auto"
-                    aria-label="scrollable auto tabs example"
+                    // aria-label="scrollable auto tabs example"
                 >
                     <Tab
                         sx={{
-                            "text-transform": "none",
+                            textTransform: "none",
                             "&.Mui-selected": {
                                 color: "#1890ff",
                             },

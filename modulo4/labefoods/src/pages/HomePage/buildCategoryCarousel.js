@@ -27,7 +27,7 @@ export const buildCategoryCarousel = (
         return (
             <Tab
                 sx={{
-                    "text-transform": "none",
+                    textTransform: "none",
                     "&.Mui-selected": {
                         color: "#1890ff",
                     },

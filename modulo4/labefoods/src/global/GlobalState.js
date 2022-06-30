@@ -72,9 +72,12 @@ export const GlobalState = (props) => {
         setShoppingCart,
         setCurrentRestaurant,
     };
+    const functions = {
+        updateAddressInformation,
+    }
 
     return (
-        <GlobalContext.Provider value={{ states, setters }}>
+        <GlobalContext.Provider value={{ states, setters, functions }}>
             {props.children}
         </GlobalContext.Provider>
     );

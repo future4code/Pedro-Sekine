@@ -125,9 +125,9 @@ export const ProfilePage = () => {
                 </CardContent>
                 <CardActions>
                     <Button size="small" onClick={handleClickEditPersonalData}>
-                        <IconButton>
+                        {/* <IconButton> */}
                             <EditIcon />
-                        </IconButton>
+                        {/* </IconButton> */}
                     </Button>
                 </CardActions>
             </Card>
@@ -165,9 +165,9 @@ export const ProfilePage = () => {
                 </CardContent>
                 <CardActions>
                     <Button size="small" onClick={handleClickEditAddress}>
-                        <IconButton>
+                        {/* <IconButton> */}
                             <EditIcon />
-                        </IconButton>
+                        {/* </IconButton> */}
                     </Button>
                 </CardActions>
             </Card>
@@ -275,7 +275,7 @@ export const ProfilePage = () => {
                     sx={{
                         margin: "0.5rem 1rem",
                         height: "3rem",
-                        "text-transform": "none",
+                        textTransform: "none",
                         boxShadow: "none",
                     }}
                     variant="contained"

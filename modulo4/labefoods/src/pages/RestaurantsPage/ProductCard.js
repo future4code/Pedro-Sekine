@@ -86,6 +86,7 @@ export const ProductCard = (props) => {
 
     return (
         <Badge
+            key={props.product.id}
             component={"div"}
             color="primary"
             badgeContent={quantity || props.quantity}

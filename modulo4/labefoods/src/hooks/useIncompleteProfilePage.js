@@ -7,7 +7,7 @@ export const useIncompleteProfilePage = () => {
     const navigate = useNavigate();
     const { states } = useContext(GlobalContext);
 
-    console.log("states.adressData", states.addressData)
+    // console.log("states.adressData", states.addressData)
 
     useLayoutEffect(() => {
         if (Object.keys(states.addressData).length === 0) {

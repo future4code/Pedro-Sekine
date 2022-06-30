@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TextField from "@mui/material/TextField";
 import FutureEatsLogo from "../../assets/images/FutureEats.png";
 import { useNavigate } from "react-router-dom";
@@ -17,10 +17,14 @@ import {
 import { useForm } from "../../hooks/useForm";
 import { postLogin } from "../../services/postLogin";
 import { useUnprotectedPage } from "../../hooks/useUnprotectedPage";
+import { GlobalContext } from "../../global/GlobalContext";
 
 export const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  const {functions} = useContext(GlobalContext)
+
   const formResources = useForm({ email: "", password: "" });
   const {
     form,
@@ -41,11 +45,8 @@ export const LoginPage = () => {
   const handleAPIRequest = async () => {
     const responseAPI = await postLogin(form, setIsLoading, updateErrorMessage);
     cleanForm();
-
-    // console.log("responseAPI.request.status", responseAPI.request.status)
-
     if (responseAPI.request.status === 200) {
-      // console.log("responseAPI.request.status", responseAPI.request.status)
+      functions.updateAddressInformation()
       goToHome(navigate)
     }
   }
@@ -60,43 +61,8 @@ export const LoginPage = () => {
       updateErrorMessage("Preencha todos os campos corretamente");
     } else {
       handleAPIRequest()
-      //👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆👆 externalizar esssa função e fazer ela async
-      // const responseAPI = postLogin(form, setIsLoading, updateErrorMessage);
-      // cleanForm();
-
-      // console.log("responseAPI.request.status", responseAPI.request.status)
-
-      // if (responseAPI.request.status === 200) {
-      //   console.log("responseAPI.request.status", responseAPI.request.status)
-      //   goToHome(navigate)
-      // }
     }
-
-    // Se o login der certo, vou ter que chamar a função goToHome.
   };
-
-  // teste 🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡
-  // const postLogin = async (body) => {
-  //   setIsLoading(true);
-  //   try {
-  //     const response = await axios.post(`${BASE_URL}/login`, body, {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-  //     console.log(response);
-  //     setIsLoading(false);
-
-  //     return response;
-  //   } catch (err) {
-  //     console.log(err);
-  //     updateErrorMessage(err.response.data.message);
-  //     setIsLoading(false);
-
-  //     return err;
-  //   }
-  // };
-  // teste 🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡🟡
 
   return (
     <PageContainer>
@@ -131,7 +97,7 @@ export const LoginPage = () => {
             sx={{
               margin: "0.5rem 1rem",
               height: "3rem",
-              "text-transform": "none",
+              textTransform: "none",
               boxShadow: "none",
             }}
             variant="contained"
