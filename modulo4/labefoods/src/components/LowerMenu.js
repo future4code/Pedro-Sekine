@@ -61,7 +61,7 @@ export const LowerMenu = (props) => {
         <AppBar
             position="fixed"
             color="menu"
-            sx={{ padding: "0.35rem 0rem", top: "92vh", bottom: "0"}}
+            sx={{ padding: "0.35rem 0rem", top: "85vh", bottom: "0"}}
         >
             <Toolbar sx={{ display: "flex", justifyContent: "space-around" }}>
                 <IconButton onClick={() => handleClick("home")}>
