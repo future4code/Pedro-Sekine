@@ -5,7 +5,14 @@ import { GlobalContext } from "./GlobalContext";
 
 export const GlobalState = (props) => {
     const [profileData, setProfileData] = useState({});
-    const [addressData, setAddressData] = useState({});
+    const [addressData, setAddressData] = useState({
+        neighbourhood: "",
+        number: "",
+        city: "",
+        complement: "",
+        state: "",
+        street: "",
+    });
     const [shoppingCart, setShoppingCart] = useState([]);
     const [currentRestaurant, setCurrentRestaurant] = useState(0);
 
@@ -30,16 +37,27 @@ export const GlobalState = (props) => {
 
     const updateAddressInformation = async () => {
         const addressRequest = await getFullAddress();
-        const { neighbourhood, number, city, complement, state, street } =
-            addressRequest.data.address;
-        setAddressData({
-            neighbourhood,
-            number,
-            city,
-            complement,
-            state,
-            street,
-        });
+        if (Object.keys(addressRequest).length === 0) {
+            setAddressData({
+                neighbourhood: "",
+                number: "",
+                city: "",
+                complement: "",
+                state: "",
+                street: "",
+            });
+        } else {
+            const { neighbourhood, number, city, complement, state, street } =
+                addressRequest.data.address;
+            setAddressData({
+                neighbourhood,
+                number,
+                city,
+                complement,
+                state,
+                street,
+            });
+        }
     };
 
     const states = {

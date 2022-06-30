@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { goToHome, goBack } from "../../routes/coordinator";
+import { goToHome, goBack, goToEditProfile, goToEditAddress } from "../../routes/coordinator";
 import TextField from "@mui/material/TextField";
 import FutureEatsLogo from "../../assets/images/FutureEats.png";
 import {
@@ -63,7 +63,7 @@ export const SignUpPage = () => {
     );
     cleanForm();
     if (responseAPI.request.status === 200) {
-      goToHome(navigate);
+      goToEditAddress(navigate);
     }
   };
 

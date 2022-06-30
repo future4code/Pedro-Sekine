@@ -44,7 +44,7 @@ const FormContainer = styled("div")({
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    margin: "0rem 1rem 7rem 0rem",
+    margin: "0rem 1rem 3rem 0rem",
 });
 
 export const ShoppingCartPage = () => {
@@ -76,7 +76,12 @@ export const ShoppingCartPage = () => {
     const buildShoppingCartComponent = () => {
         if (states.shoppingCart.length) {
             const componentConstructor = states.shoppingCart.map((product) => {
-                return <ProductCard product={product.product} quantity={product.quantity}/>;
+                return (
+                    <ProductCard
+                        product={product.product}
+                        quantity={product.quantity}
+                    />
+                );
             });
             setShoppingCartComponent(componentConstructor);
         } else {
@@ -118,27 +123,25 @@ export const ShoppingCartPage = () => {
         } else if (Object.keys(restaurantData).length === 0) {
             setErrorMessage("Adicione itens ao carrinho");
         } else {
-
-            const bodyBuilder = states.shoppingCart.map(item => {
+            const bodyBuilder = states.shoppingCart.map((item) => {
                 const bodyobject = {
                     id: item.product.id,
-                    quantity: item.quantity
-                }
-                return bodyobject
-            })
+                    quantity: item.quantity,
+                };
+                return bodyobject;
+            });
 
             const body = {
                 products: bodyBuilder,
-                paymentMethod: paymentMethod
-            }
-            const restaurantId = states.currentRestaurant
+                paymentMethod: paymentMethod,
+            };
+            const restaurantId = states.currentRestaurant;
             // console.log("body que vai ser enviado", body);
-            
-            const placeOrderRequest = await postPlaceOrder(body, restaurantId)
+
+            const placeOrderRequest = await postPlaceOrder(body, restaurantId);
             if (placeOrderRequest.request.status === 200) {
-                setErrorMessage("Pedido feito com sucesso! Bom Apetite 😋")
+                setErrorMessage("Pedido feito com sucesso! Bom Apetite 😋");
             }
-        
         }
     };
 
@@ -252,6 +255,7 @@ export const ShoppingCartPage = () => {
                     <></>
                 )}
             </FormContainer>
+            <Box sx={{ height: "5rem" }}></Box>
 
             <LowerMenu activePage={"shoppingCart"} />
         </div>

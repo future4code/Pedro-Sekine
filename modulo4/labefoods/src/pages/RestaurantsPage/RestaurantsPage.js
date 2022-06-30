@@ -68,34 +68,37 @@ export const RestaurantsPage = () => {
 
         let localProductsComponent = [];
 
-        for (let category of singleCategories) {
-            const categoryRestaurants = products.filter((product) => {
-                return product.category === category;
-            });
-            // console.log("categoria atual", category);
-            localProductsComponent.push(
-                <Typography
-                    variant="h5"
-                    component="div"
-                    sx={{ margin: "2rem 0.5rem 0.3rem 0.5rem" }}
-                >
-                    {category}
-                </Typography>
-            );
-            localProductsComponent.push(<Divider />);
-            const categoryRestaurantsComponent = categoryRestaurants.map(
-                (product) => {
-                    return (
-                        <ProductCard
-                            product={product}
-                            restaurantId={params.id}
-                        />
-                    );
-                }
-            );
-            localProductsComponent.push(categoryRestaurantsComponent);
+        if (!productsComponent.length) {
+            for (let category of singleCategories) {
+                const categoryRestaurants = products.filter((product) => {
+                    return product.category === category;
+                });
+                // console.log("categoria atual", category);
+                localProductsComponent.push(
+                    <Typography
+                        variant="h5"
+                        component="div"
+                        sx={{ margin: "2rem 0.5rem 0.3rem 0.5rem" }}
+                    >
+                        {category}
+                    </Typography>
+                );
+                localProductsComponent.push(<Divider />);
+                const categoryRestaurantsComponent = categoryRestaurants.map(
+                    (product) => {
+                        return (
+                            <ProductCard
+                                product={product}
+                                restaurantId={params.id}
+                            />
+                        );
+                    }
+                );
+                localProductsComponent.push(categoryRestaurantsComponent);
+            }
+            setProductsComponent([...productsComponent, localProductsComponent]);
         }
-        setProductsComponent([...productsComponent, localProductsComponent]);
+        
         // console.log("singleCategories", singleCategories);
     };
 

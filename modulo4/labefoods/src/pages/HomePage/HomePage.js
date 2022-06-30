@@ -20,9 +20,11 @@ import { getRestaurants } from "../../services/getRestaurants";
 import { buildRestaurantComponent } from "./buildRestaurantComponent";
 import { buildCategoryCarousel } from "./buildCategoryCarousel";
 import { LowerMenu } from "../../components/LowerMenu";
+import { useUnprotectedPage } from "../../hooks/useUnprotectedPage";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
+import { useIncompleteProfilePage } from "../../hooks/useIncompleteProfilePage";
 
 export const HomePage = () => {
-    const [logout, setLogout] = useState(false);
     const [allRestaurants, setAllRestaurants] = useState([]);
     const [restaurantComponent, setRestaurantComponent] = useState([]);
     const [carouselComponent, setCarouselComponent] = useState([]);
@@ -33,12 +35,8 @@ export const HomePage = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (!token) {
-            goToLogin(navigate);
-        }
-    }, [logout]);
+    useProtectedPage();
+    useIncompleteProfilePage()
 
     useEffect(() => {
         updateRestaurantList();
@@ -59,11 +57,6 @@ export const HomePage = () => {
             setCarouselComponent,
             activeTab
         );
-    };
-
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        setLogout(!logout);
     };
 
     const handleClickRestaurant = (id) => {

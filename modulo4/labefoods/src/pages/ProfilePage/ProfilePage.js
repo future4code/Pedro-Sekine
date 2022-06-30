@@ -15,14 +15,26 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LowerMenu } from "../../components/LowerMenu";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
-import { goToEditAddress, goToEditProfile } from "../../routes/coordinator";
+import {
+    goToEditAddress,
+    goToEditProfile,
+    goToLogin,
+} from "../../routes/coordinator";
 import EditIcon from "@mui/icons-material/Edit";
 import { getProfile } from "../../services/getProfile";
 import { getAddress } from "../../services/getAddress";
 import { getOrdersHistory } from "../../services/getOrdersHistory";
 import { getActiveOrder } from "../../services/getActiveOrder";
+import styled from "styled-components";
+
+const LogoutContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 export const ProfilePage = () => {
+    const [logout, setLogout] = useState(false);
+
     const [personalDataComponent, setPersonalDataComponent] = useState();
     const [addressComponent, setAddressComponent] = useState();
     const [ordersComponent, setOrdersComponent] = useState([]);
@@ -31,6 +43,13 @@ export const ProfilePage = () => {
     const navigate = useNavigate();
 
     useProtectedPage();
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (!token) {
+            goToLogin(navigate);
+        }
+    }, [logout]);
 
     useEffect(() => {
         profileBuilder();
@@ -72,8 +91,8 @@ export const ProfilePage = () => {
     };
 
     const handleClickEditAddress = () => {
-        goToEditAddress(navigate)
-    }
+        goToEditAddress(navigate);
+    };
 
     const buildPersonalDataCard = (user) => {
         const cardComponent = (
@@ -228,6 +247,11 @@ export const ProfilePage = () => {
         }
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        setLogout(!logout);
+    };
+
     return (
         <div>
             <AppBar
@@ -244,6 +268,22 @@ export const ProfilePage = () => {
 
             {personalDataComponent ? personalDataComponent : loadingCard}
             {addressComponent ? addressComponent : loadingCard}
+            <LogoutContainer>
+                <Button
+                    type="submit"
+                    color="error"
+                    sx={{
+                        margin: "0.5rem 1rem",
+                        height: "3rem",
+                        "text-transform": "none",
+                        boxShadow: "none",
+                    }}
+                    variant="contained"
+                    onClick={handleLogout}
+                >
+                    Logout
+                </Button>
+            </LogoutContainer>
             <Typography
                 variant="h5"
                 component="div"
@@ -274,7 +314,7 @@ export const ProfilePage = () => {
                     Você ainda não completou nenhum pedido
                 </Typography>
             )}
-            <Box sx={{height: "5rem"}}></Box>
+            <Box sx={{ height: "5rem" }}></Box>
             <LowerMenu activePage={"profile"} />
         </div>
     );
