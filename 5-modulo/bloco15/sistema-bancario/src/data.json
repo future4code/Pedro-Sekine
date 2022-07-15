@@ -1,0 +1,84 @@
+[
+  {
+    "name": "Orácio Lamésio",
+    "CPF": "00000000000",
+    "birthday": "01/01/2001",
+    "balance": "8",
+    "history": {
+      "value": "9",
+      "date": "09/07/2022",
+      "description": "leite tá caro demais"
+    }
+  },
+  {
+    "name": "Karen Silva",
+    "CPF": "11111111111",
+    "birthday": "02/01/2001",
+    "balance": "10",
+    "history": {
+      "value": "2",
+      "date": "09/07/2022",
+      "description": "gasolina tá cara demais"
+    }
+  },
+  {
+    "name": "Osório Mendes",
+    "CPF": "15050000000",
+    "birthday": "15/05/1998",
+    "balance": "1200",
+    "history": [
+      {
+        "value": "42",
+        "date": "09/07/2022",
+        "description": "Depósito em Dinheiro"
+      },
+      {
+        "value": "43",
+        "date": "09/07/2022",
+        "description": "Depósito em Dinheiro"
+      },
+      { "value": "600", "date": "10/07/2022", "description": "descrição 2214" },
+      { "value": "420", "date": "9/7/2022", "description": "descrição 2215" }
+    ]
+  },
+  {
+    "name": "Miguel Miguelito",
+    "CPF": "17020000000",
+    "birthday": "20/07/2004",
+    "balance": "172",
+    "history": [
+      {
+        "value": "100",
+        "date": "09/07/2022",
+        "description": "Depósito em Dinheiro"
+      },
+      { "value": "-20", "date": "09/07/2022", "description": "Coxinha" },
+      { "value": "-8", "date": "09/07/2022", "description": "1L de leite" },
+      {
+        "value": "1000",
+        "date": "10/07/2022",
+        "description": "Depósito em Dinheiro"
+      },
+      { "value": "-58", "date": "10/7/2022", "description": "descrição 1058" },
+      { "value": "-8", "date": "10/7/2022", "description": "descrição 1107" },
+      {
+        "value": "-6",
+        "date": "10/7/2022",
+        "description": "Depósito feito para Robertinho o Pão Duro"
+      }
+    ]
+  },
+  {
+    "name": "Robertinho o Pão Duro",
+    "CPF": "10100000000",
+    "birthday": "09/07/1978",
+    "balance": "0",
+    "history": [
+      {
+        "value": "6",
+        "date": "10/7/2022",
+        "description": "Depósito recebido de Miguel Miguelito"
+      }
+    ]
+  }
+]
