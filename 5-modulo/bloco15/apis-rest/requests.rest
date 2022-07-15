@@ -1,0 +1,11 @@
+GET http://localhost:3003/pedro
+###
+
+GET http://localhost:3003/users
+###
+
+GET http://localhost:3003/users/?name=alice
+
+###
+
+GET http://localhost:3003/users/type/NoRmal
