@@ -1,0 +1,13 @@
+# fazer request de select all users e entender getallusers
+
+###
+GET http://localhost:3003/user
+
+### 
+GET http://localhost:3003/user?name=J
+
+### 
+GET http://localhost:3003/user?type=te
+
+### 
+GET http://localhost:3003/user?orderTypeChoice=name
