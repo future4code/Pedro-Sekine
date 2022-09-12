@@ -1,0 +1,18 @@
+GET http://localhost:3003/all
+
+###
+
+POST http://localhost:3003/createUser
+Content-Type: application/json
+
+{
+  "name": "Vou ser apagado2",
+  "email": "email que vai ser apagado2",
+  "password": "queime depois de ler2"
+}
+
+###
+
+# DELETE http://localhost:3003/:id
+DELETE http://localhost:3003/3ab24f0d-da47-40d9-90fd-ab9f1aa8e61b
+
