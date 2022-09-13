@@ -1,11 +1,7 @@
-import { app } from "./controller/app"
-import { UserController } from "./controller/UserController"
-import { createTask } from './endpoints/createTask'
+import { app } from "./controller/app";
+import { userRouter } from "./controller/routes/userRouter"; 
+import { taskRouter } from "./controller/routes/taskRouter";
 
-const userController = new UserController
+app.use("/user", userRouter);
 
-app.post('/user', userController.createUser)
-
-app.post('/task', createTask)
-
-
+app.use("/task", taskRouter);
