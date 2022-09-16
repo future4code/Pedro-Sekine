@@ -1,10 +1,11 @@
+import { UserRepository } from "../business/UserRepository";
 import { CustomError } from "../errors/CustomError";
 import { DatabaseConnectionDTO } from "../model/DatabaseConnectionDTO";
 import { databaseNewConnectionDTO } from "../model/databaseNewConnectionDTO";
 import { DatabaseUserDTO } from "../model/DatabaseUserDTO";
 import { BaseDatabase } from "./BaseDatabase";
 
-export class UserDatabase extends BaseDatabase {
+export class UserDatabase extends BaseDatabase implements UserRepository {
   public createConnection = async (
     userObject: databaseNewConnectionDTO
   ): Promise<void> => {
@@ -27,6 +28,18 @@ export class UserDatabase extends BaseDatabase {
   public createUser = async (newUserData: DatabaseUserDTO): Promise<void> => {
     try {
       await UserDatabase.connection("labook_users").insert(newUserData);
+    } catch (error: any) {
+      throw new CustomError(400, "Unexpected Error. Please try again.");
+    }
+  };
+
+  public findUserByEmail = async (userEmail: string): Promise<DatabaseUserDTO[]> => {
+    try {
+      const queryResult = await UserDatabase.connection("labook_users").where(
+        "email",
+        userEmail
+      );
+      return queryResult;
     } catch (error: any) {
       throw new CustomError(400, "Unexpected Error. Please try again.");
     }

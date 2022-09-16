@@ -1,14 +1,15 @@
 import { IncompleteUser } from "../errors/IncompleteUser";
 import { DatabaseUserDTO } from "../model/DatabaseUserDTO";
-import { UserDatabase } from "../data/UserDatabase";
 import { InputUserDTO } from "../model/InputUserDTO";
 import { CustomError } from "../errors/CustomError";
 import { InputNewConnectionDTO } from "../model/InputNewConnectionDTO";
 import { databaseNewConnectionDTO } from "../model/databaseNewConnectionDTO";
 import { GenerateID } from "../services/GenerateID";
 import { DatabaseConnectionDTO } from "../model/DatabaseConnectionDTO";
+import { UserRepository } from "./UserRepository";
 
 export class UserBusiness {
+  constructor(private userDatabase: UserRepository) {}
   public createUser = async (input: InputUserDTO) => {
     try {
       const { name, email, password } = input;
@@ -17,14 +18,19 @@ export class UserBusiness {
         throw new IncompleteUser();
       }
 
+      const queryResult: DatabaseUserDTO[] = await this.userDatabase.findUserByEmail(
+        email
+      );
+      if (queryResult.length) {
+        throw new CustomError(400, "Email has already been used.");
+      }
+
       const generateID = new GenerateID();
       const id: string = generateID.getId();
 
       const newUser: DatabaseUserDTO = { id, name, email, password };
 
-      const userDatabase = new UserDatabase();
-
-      await userDatabase.createUser(newUser);
+      await this.userDatabase.createUser(newUser);
     } catch (error: any) {
       throw new CustomError(
         error.statusCode || 400,
@@ -39,16 +45,16 @@ export class UserBusiness {
     try {
       const { idUserOne, idUserTwo } = input;
 
-      const userDatabase = new UserDatabase();
+      // const userDatabase = new UserDatabase();
 
       // garantir que os dois usuários existem
-      const userOne: DatabaseUserDTO[] = await userDatabase.findUserByID(
+      const userOne: DatabaseUserDTO[] = await this.userDatabase.findUserByID(
         idUserOne
       );
       if (!userOne.length) {
         throw new CustomError(404, `ID: ${idUserOne}. Student not found`);
       }
-      const userTwo: DatabaseUserDTO[] = await userDatabase.findUserByID(
+      const userTwo: DatabaseUserDTO[] = await this.userDatabase.findUserByID(
         idUserTwo
       );
       if (!userTwo.length) {
@@ -62,7 +68,7 @@ export class UserBusiness {
         idUserTwo,
       };
 
-      await userDatabase.createConnection(databaseNewConnection);
+      await this.userDatabase.createConnection(databaseNewConnection);
     } catch (error: any) {
       throw new CustomError(
         error.statusCode || 400,
@@ -76,9 +82,9 @@ export class UserBusiness {
       const databaseConnectionID: string = connectionID;
 
       // search Connection By ID
-      const userDatabase = new UserDatabase();
+      // const userDatabase = new UserDatabase();
       const queryResult: DatabaseConnectionDTO[] =
-        await userDatabase.findConnectionByID(databaseConnectionID);
+        await this.userDatabase.findConnectionByID(databaseConnectionID);
       if (!queryResult.length) {
         throw new CustomError(
           404,
@@ -86,7 +92,7 @@ export class UserBusiness {
         );
       }
 
-      await userDatabase.deleteConnection(databaseConnectionID);
+      await this.userDatabase.deleteConnection(databaseConnectionID);
 
       // Delete Connection
     } catch (error: any) {

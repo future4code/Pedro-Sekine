@@ -1,0 +1,81 @@
+POST http://localhost:3003/users/
+Content-Type: application/json
+
+{
+  "name": "Romário",
+  "email": "romario@rom.ario",
+  "password": "romrom"
+}
+
+
+### 
+
+POST http://localhost:3003/post
+Content-Type: application/json
+
+{ 
+  "photo": "teste 1246 2",
+  "description": "teste 1246 2", 
+  "type": "normal", 
+  "authorId": "f237bf9a-bfe8-4a0d-a940-6771794dd10e"
+
+}
+
+###
+
+GET http://localhost:3003/post/9b33e7b0-1505-4f43-970a-47ecaf43831a
+
+###
+POST http://localhost:3003/users/connection
+Content-Type: application/json
+
+{
+  "idUserOne": "6c5f581b-f3ca-4966-bcc9-402c408b5406",
+  "idUserTwo": "670b5736-1dcb-4865-802a-292b7b5fcf76"
+}
+
+###
+
+DELETE http://localhost:3003/users/connection
+Content-Type: application/json
+
+{
+  "id": "1ade0478-8578-42e5-ae11-d7c6992be06e"
+}
+
+### 
+
+GET http://localhost:3003/post/feed/670b5736-1dcb-4865-802a-292b7b5fcf76
+
+###
+
+GET http://localhost:3003/post/feed/all/filter/event
+###
+POST http://localhost:3003/post/like
+Content-Type: application/json
+
+{
+  "userID": "6c5f581b-f3ca-4966-bcc9-402c408b5406",
+  "postID": "f29ba14b-c29e-4d99-bcb5-479cae2af9be"
+}
+###
+
+DELETE http://localhost:3003/post/like
+Content-Type: application/json
+
+{
+  "userID": "6c5f581b-f3ca-4966-bcc9-402c408b5406",
+  "postID": "f29ba14b-c29e-4d99-bcb5-479cae2af9be"
+}
+###
+
+POST http://localhost:3003/post/comment
+Content-Type: application/json
+
+{
+  "postID": "asdfasdf",
+  "userID": "f237bf9a-bfe8-4a0d-a940-6771794dd10e",
+  "comment": "teste 1041"
+}
+###
+GET http://localhost:3003/post/feed/670b5736-1dcb-4865-802a-292b7b5fcf76/2

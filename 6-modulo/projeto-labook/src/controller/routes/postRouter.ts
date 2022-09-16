@@ -9,8 +9,15 @@ postRouter.post("/", postController.createPost);
 
 postRouter.get("/:id", postController.searchPostByID);
 
-postRouter.get("/feed/:id", postController.getFeed)
+postRouter.get("/feed/:id/:page", postController.getFeed)
+
+postRouter.get("/feed/all/filter/:type", postController.filterFeed)
+
+postRouter.post("/like", postController.likePost)
+
+postRouter.delete("/like", postController.dislikePost)
+
+postRouter.post("/comment", postController.newComment)
 
 
-// O feed é composto por todos os posts dos amigos do usuário. 
-// Os posts devem ser retornado em ordem de criação: do mais recente ao mais antigo.
+// LIMIT e OFFSET

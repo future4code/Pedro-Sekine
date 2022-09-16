@@ -4,6 +4,9 @@ import { InputNewConnectionDTO } from "../model/InputNewConnectionDTO";
 import { InputUserDTO } from "../model/InputUserDTO";
 
 export class UserController {
+  constructor(
+    private userBusiness:UserBusiness
+  ){}
   public createUser = async (req: Request, res: Response) => {
     try {
       console.log("chegou");
@@ -11,8 +14,8 @@ export class UserController {
 
       const newUser: InputUserDTO = { name, email, password };
       // console.log("passou por aqui", newUser)
-      const userBusiness = new UserBusiness();
-      await userBusiness.createUser(newUser);
+      // const userBusiness = new UserBusiness();
+      await this.userBusiness.createUser(newUser);
 
       res.status(201).send("Success");
     } catch (error: any) {
@@ -33,8 +36,8 @@ export class UserController {
         idUserOne,
         idUserTwo,
       };
-      const userBusiness = new UserBusiness();
-      await userBusiness.createConnection(inputNewConnection);
+      // const userBusiness = new UserBusiness();
+      await this.userBusiness.createConnection(inputNewConnection);
 
       res.status(201).send("The two users are now connected.");
     } catch (error: any) {
@@ -53,8 +56,8 @@ export class UserController {
 
       const connectionID: string = id;
 
-      const userBusiness = new UserBusiness();
-      await userBusiness.deleteConnection(connectionID);
+      // const userBusiness = new UserBusiness();
+      await this.userBusiness.deleteConnection(connectionID);
 
       res.send("Connection deleted.");
     } catch (error: any) {
