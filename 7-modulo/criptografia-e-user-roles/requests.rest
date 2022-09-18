@@ -3,10 +3,10 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-   "name": "Norman Osbourne", 
-   "nickname": "Green Goblin", 
-   "email": "osbourne@oscorp.com" ,
-   "password": "ihatepeter"
+   "name": "Refatoração 1500", 
+   "nickname": "Refatoração 1500", 
+   "email": "refa@acao" ,
+   "password": "abc123"
 }
 ###
 
@@ -14,16 +14,17 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-   "email": "osbourne@oscorp.com",
-   "password": "ihatepeter"
+   "email": "refa@acao",
+   "password": "abc123"
 }
 
 ###
-PUT http://localhost:3003/user/edit/20bd6989-35f6-46a0-9ee5-caddc4e1b4c0
+PUT http://localhost:3003/user/edit/9172be5d-2ba6-419b-8b77-0d42999fa2ae
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIwYmQ2OTg5LTM1ZjYtNDZhMC05ZWU1LWNhZGRjNGUxYjRjMCIsImlhdCI6MTY1NDY0NzU4MSwiZXhwIjoxNjU0NjUxMTgxfQ.QjnFbW9cy_PH9CkJO6clhBaFJq6leqtkW0slrhkrcaI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5ZmY0MjdmLTRiZmYtNGRiNi04NDRiLWM3MDIwOTc0M2I0MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2MzUwNjI4NiwiZXhwIjoxNjYzNTA5ODg2fQ.XjL1i0NuomRzsUyW1lMBMGwAZI7nqpKGpYT8oVqMMJ0
 
 {
-   "name": "Harry Osbourne",
-   "nickname": "Harry" 
+   "name": "alo?????",
+   "nickname": "REFA 1501",
+   "role": "admin"
 }

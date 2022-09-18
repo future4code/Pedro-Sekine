@@ -47,16 +47,19 @@ export class UserBusiness {
       const hashtool = new HashTool();
       const newHash = await hashtool.generateHash(password);
 
+      const standardRole = "normal"
+
       const user: user = {
         id,
         name,
         nickname,
         email,
         password: newHash,
+        role: standardRole
       };
 
       await userDatabase.insertUser(user);
-      const token = tokenGenerator.generateToken(id);
+      const token = tokenGenerator.generateToken(id, standardRole);
 
       return token;
     } catch (error: any) {
@@ -85,13 +88,11 @@ export class UserBusiness {
       const hashtool = new HashTool();
       const verificationResult = await hashtool.verifyHash(password, user.password);
 
-      console.log("arrived at verificationResult", verificationResult)
-
       if (!verificationResult) {
         throw new InvalidPassword();
       }
 
-      const token = tokenGenerator.generateToken(user.id);
+      const token = tokenGenerator.generateToken(user.id, user.role);
 
       return token;
     } catch (error: any) {
@@ -101,18 +102,26 @@ export class UserBusiness {
 
   public editUser = async (input: EditUserInputDTO) => {
     try {
-      const { name, nickname, id, token } = input;
+      const { name, nickname, role, id, token } = input;
 
-      if (!name || !nickname || !id || !token) {
+      if (!name || !nickname || !id || !token || !role) {
         throw new CustomError(
           400,
-          'Preencha os campos "id", "name", "nickname" e "token"'
+          'Preencha os campos "id", "name", "nickname", "token" e "role"'
         );
       }
 
       const data = tokenGenerator.tokenData(token);
 
       if (!data.id) {
+        throw new Unauthorized();
+      }
+
+      if (!data.role) {
+        throw new Unauthorized();
+      }
+
+      if (data.role !== "admin") {
         throw new Unauthorized();
       }
 
@@ -124,6 +133,7 @@ export class UserBusiness {
         id,
         name,
         nickname,
+        role
       };
 
       const userDatabase = new UserDatabase();

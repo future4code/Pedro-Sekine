@@ -46,12 +46,13 @@ export class UserController {
           const input: EditUserInputDTO = {
             name: req.body.name,
             nickname: req.body.nickname,
+            role: req.body.role,
             id: req.params.id,
             token: req.headers.authorization as string
           };
 
           const userBusiness = new UserBusiness()
-          console.log(input)
+        
           await userBusiness.editUser(input);
     
           res.status(201).send({ message: "Usuário alterado!" });

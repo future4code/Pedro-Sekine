@@ -26,6 +26,7 @@ export class UserDatabase extends BaseDatabase {
           nickname: user.nickname,
           email: user.email,
           password: user.password,
+          role: user.role
         })
         .into("Auth_users");
     } catch (error: any) {
@@ -36,7 +37,7 @@ export class UserDatabase extends BaseDatabase {
   public editUser = async (user: EditUserInput) => {
     try {
       await UserDatabase.connection
-        .update({ name: user.name, nickname: user.nickname })
+        .update({ name: user.name, nickname: user.nickname, role: user.role })
         .where({ id: user.id })
         .into("Auth_users");
     } catch (error: any) {

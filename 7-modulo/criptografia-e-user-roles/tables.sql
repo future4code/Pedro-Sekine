@@ -1,5 +1,5 @@
-
 CREATE TABLE IF NOT EXISTS Auth_users (
+
     id VARCHAR(64) PRIMARY KEY,
     name VARCHAR(64) NOT NULL,
     nickname VARCHAR(64) NOT NULL,
@@ -24,4 +24,12 @@ CREATE TABLE IF NOT EXISTS Auth_assignees (
     FOREIGN KEY (task_id) REFERENCES Auth_tasks(id),
     FOREIGN KEY (assignee_id) REFERENCES Auth_users(id)
 );
+
+ALTER TABLE Auth_users
+ADD role ENUM("normal", "admin") DEFAULT "normal"
+;
+
+
+DESCRIBE Auth_users;
+SELECT * FROM Auth_users;
 
