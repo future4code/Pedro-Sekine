@@ -1,0 +1,98 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+  "name": "testeadm",
+  "email": "testeadm",
+  "password": "testeadm",
+  "role": "admin"
+}
+
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+  "email": "Vou deletar o outro",
+  "password": "Vou deletar o outro"
+}
+###
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZTZlOGU5LTgwZGEtNDZmMy1iM2YwLWZhMTBkMmRlZTgxYSIsInJvbGUiOiJhcXVpIHZhaSBlbnRyYXIgYSByb2xlIGV2ZW50dWFsbWVudGUiLCJpYXQiOjE2NjM1NjcyMjQsImV4cCI6MTY2MzU2NzUyNH0.f_Z5rdQsC2p9gVzqn17IVxU-hlAK5LAziCSLdscvIVk
+###
+GET http://localhost:3003/user/26f2fa40-db3f-4cb1-8a67-f372f293b9f6
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZTZlOGU5LTgwZGEtNDZmMy1iM2YwLWZhMTBkMmRlZTgxYSIsInJvbGUiOiJhcXVpIHZhaSBlbnRyYXIgYSByb2xlIGV2ZW50dWFsbWVudGUiLCJpYXQiOjE2NjM1NjczMTIsImV4cCI6MTY2MzU2NzYxMn0.JQkupJYjCqKD99WiBGqquWEKWhq174mJTrv_xieD4MI
+###
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1MTg1YmQ1LTI3MWQtNDM1NC05NzExLWM0OTJiNmM4MDZlOSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2NjM2MDc0NDYsImV4cCI6MTY2MzYwNzc0Nn0.JxB6EAHD3LAxfYReZ7q8a7aK5hLA0I3bBTeYGYvpEaI
+
+{
+  "title": "receita errada",
+  "description": "ops"
+}
+###
+GET http://localhost:3003/recipe/ec65e055-cb61-42f7-912d-c81488f7c287
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhZTZlOGU5LTgwZGEtNDZmMy1iM2YwLWZhMTBkMmRlZTgxYSIsInJvbGUiOiJhcXVpIHZhaSBlbnRyYXIgYSByb2xlIGV2ZW50dWFsbWVudGUiLCJpYXQiOjE2NjM1ODE4MTYsImV4cCI6MTY2MzU4MjExNn0.Eed5Y_yqv1oIAbZf50TcMIXeDJQhVseLz9Ctr31uQ9Q
+###
+POST http://localhost:3003/user/follow
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1MTg1YmQ1LTI3MWQtNDM1NC05NzExLWM0OTJiNmM4MDZlOSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2NjM2MTUwMzYsImV4cCI6MTY2MzYxNTMzNn0.VRKn4ajYrr9N9r_7yn-0ZAIr8BH0KJKMEY94cRqHTRY
+
+{
+  "userToFollowId": "87c6db8e-b6b3-460c-8583-f3e3547bc129"
+}
+###
+POST http://localhost:3003/user/unfollow
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ5YWU0NWI0LTIxOWQtNGEwYi04YmM5LWNkYjA4ZTY2NTExZSIsInJvbGUiOiJhcXVpIHZhaSBlbnRyYXIgYSByb2xlIGV2ZW50dWFsbWVudGUiLCJpYXQiOjE2NjM1OTYwODMsImV4cCI6MTY2MzU5NjM4M30.XnnvrJXag4_dBKMoITTdORX5h5NzZm3P5TyQ8nMo3BI
+
+{
+  "userToUnfollowId": "cd399d21-b8c5-4577-8ae3-5fc5d70adfa9"
+}
+###
+GET http://localhost:3003/user/feed
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdkMzkyYTU3LTNmOWItNGI2Yy04ZTQ2LWI5ZDdjMjIzODc5NyIsInJvbGUiOiJhcXVpIHZhaSBlbnRyYXIgYSByb2xlIGV2ZW50dWFsbWVudGUiLCJpYXQiOjE2NjM2MDE1NTIsImV4cCI6MTY2MzYwMTg1Mn0.bEQu0PSnmxLaw7gW_DPETKqNNQJw5t8jvY0ntvI_VlA
+### 
+PUT http://localhost:3003/recipe/edit
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1MTg1YmQ1LTI3MWQtNDM1NC05NzExLWM0OTJiNmM4MDZlOSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2NjM2MDYxNTYsImV4cCI6MTY2MzYwNjQ1Nn0.8jQzSua8iqKvnd2UsJes9moB4xdRzPgG4eYHguhuJ_M
+
+{
+  "id": "b323a680-5f96-47d3-9e1c-441c9ea89f31",
+  "title": "Gelinho docinho",
+  "description": "Coloque água e açucar no freezer ou, caso você more no frio"
+}
+###
+
+DELETE http://localhost:3003/recipe/delete/2138c466-dbc3-4c9a-bf30-21f097b7bcf4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdkMzkyYTU3LTNmOWItNGI2Yy04ZTQ2LWI5ZDdjMjIzODc5NyIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2NjM2MDc2MTcsImV4cCI6MTY2MzYwNzkxN30.O2d8FWAKxdyIe5BgifhQwHMMiRQKDg58iRX1hakc1_8
+###
+
+DELETE http://localhost:3003/user/delete/cd399d21-b8c5-4577-8ae3-5fc5d70adfa9
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzNTVhZTEzLTMxYjgtNDliNS1iYzdkLWQyMjBkZGQ0Y2NlMSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2MzYxNTUwMSwiZXhwIjoxNjYzNjE1ODAxfQ.7gdakiiWb9VvB8LEZUk7eyoTj4nvOppc_BVvUZ149ro
+
+
+# {
+#   "name": "Name Feed 1640",
+#   "email": "Email Feed 1640",
+#   "password": "Feed 1640"
+# }
+
+# {
+#   "name": "Criador de Receita 2",
+#   "email": "Criador de Receita 2",
+#   "password": "Criador de Receita 2"
+# }
+
+  # "name": "Vou deletar o outro",
+  # "email": "Vou deletar o outro",
+  # "password": "Vou deletar o outro",
+  # "role": "admin"
