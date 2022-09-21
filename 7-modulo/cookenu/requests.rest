@@ -78,7 +78,14 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdkMzkyYTU3LTNmOWIt
 DELETE http://localhost:3003/user/delete/cd399d21-b8c5-4577-8ae3-5fc5d70adfa9
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzNTVhZTEzLTMxYjgtNDliNS1iYzdkLWQyMjBkZGQ0Y2NlMSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2MzYxNTUwMSwiZXhwIjoxNjYzNjE1ODAxfQ.7gdakiiWb9VvB8LEZUk7eyoTj4nvOppc_BVvUZ149ro
+###
 
+PUT http://localhost:3003/user/login/resetPassword
+Content-Type: application/json
+
+{
+  "email": "teste email"
+}
 
 # {
 #   "name": "Name Feed 1640",

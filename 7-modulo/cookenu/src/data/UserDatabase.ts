@@ -137,4 +137,17 @@ export class UserDatabase extends BaseDatabase {
       throw new CustomError(error.statusCode, error.message);
     }
   };
+
+  public resetPassword = async (
+    email: string,
+    newPassword: string
+  ): Promise<void> => {
+    try {
+      await UserDatabase.connection("cookenu_users")
+        .where("email", email)
+        .update("password", newPassword);
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  };
 }

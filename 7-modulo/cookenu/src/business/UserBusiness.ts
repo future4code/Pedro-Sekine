@@ -33,10 +33,12 @@ import { PayloadObjectDTO } from "../model/DTOs/PayloadObjectDTO";
 import { ResponseFeedDTO } from "../model/DTOs/ResponseFeedDTO";
 import { ResponseProfileDTO } from "../model/DTOs/ResponseProfileDTO";
 import { VerificationObjectDTO } from "../model/DTOs/VerificationObjectDTO";
+import { EmailSender } from "../services/EmailSender";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
 import { TokenManager } from "../services/TokenManager";
 import { UserRepository } from "./UserRepository";
+import generator from "generate-password";
 
 export class UserBusiness {
   constructor(private userDatabase: UserRepository) {}
@@ -75,7 +77,7 @@ export class UserBusiness {
         name,
         email,
         password: hash,
-        role
+        role,
       };
 
       await this.userDatabase.createUser(databaseCreateUser);
@@ -321,7 +323,7 @@ export class UserBusiness {
       }
       const payload = this.tokenManager.verifyToken(token) as JwtPayload;
 
-      console.log("payload.role",payload.role)
+      console.log("payload.role", payload.role);
 
       if (payload.role !== "admin") {
         throw new NoPermission();
@@ -336,6 +338,35 @@ export class UserBusiness {
       // delete follow relations
       // delete recipes
       // delete user
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  };
+  public resetPassword = async (email: string): Promise<void> => {
+    try {
+      // verificar se o email está registrado.
+      const queryResult = await this.userDatabase.searchUserByEmail(email);
+      if (!queryResult.length) {
+        throw new EmailNotRegistered();
+      }
+
+      // Se estiver, resetar o email com o novo email e enviar o email com a nova senha
+
+      const newPassword: string = generator.generate({
+        length: 10,
+        numbers: true,
+        uppercase: true,
+      });
+
+      console.log("newPassword", newPassword);
+
+      const hashmanager = new HashManager();
+      const hash: string = await hashmanager.generateHash(newPassword);
+
+      await this.userDatabase.resetPassword(email, hash);
+
+      const emailSender = new EmailSender();
+      await emailSender.sendEmail(email, newPassword);
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message);
     }

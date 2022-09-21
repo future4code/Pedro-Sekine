@@ -17,4 +17,5 @@ export interface UserRepository {
   getFeed(id: string): Promise<ResponseFeedDTO[]>;
   unfollowAll(id: string): Promise<void>;
   deleteUser(id: string): Promise<void>;
+  resetPassword(email: string, newPassword: string): Promise<void>;
 }

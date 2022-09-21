@@ -150,4 +150,18 @@ export class UserController {
         .send(error.message || error.sqlMessage);
     }
   };
+
+  public resetPassword = async (req: Request, res: Response):Promise<void> => {
+    try {
+      const { email } = req.body;
+
+      await this.userBusiness.resetPassword(email)
+
+      res.status(200).send("Email with further instructions sent to you.")
+    } catch (error: any) {
+      res
+        .status(error.statusCode || 400)
+        .send(error.message || error.sqlMessage);
+    }
+  };
 }
