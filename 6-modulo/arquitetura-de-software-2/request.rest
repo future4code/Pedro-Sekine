@@ -1,0 +1,25 @@
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "name": "teste 1220",
+    "email": "email@email.com1220",
+    "password": "sldfjaskldf"
+}
+
+###
+
+GET http://localhost:3003/user/
+ 
+###
+
+
+POST http://localhost:3003/movie
+Content-Type: application/json
+
+{
+  "title": "Velozes e Furiosos",
+  "description": "mt rápido",
+  "duration": 90,
+  "release": 2006
+}
