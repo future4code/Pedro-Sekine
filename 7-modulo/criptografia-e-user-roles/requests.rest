@@ -1,0 +1,30 @@
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "name": "Refatoração 1500", 
+   "nickname": "Refatoração 1500", 
+   "email": "refa@acao" ,
+   "password": "abc123"
+}
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "refa@acao",
+   "password": "abc123"
+}
+
+###
+PUT http://localhost:3003/user/edit/9172be5d-2ba6-419b-8b77-0d42999fa2ae
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5ZmY0MjdmLTRiZmYtNGRiNi04NDRiLWM3MDIwOTc0M2I0MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2MzUwNjI4NiwiZXhwIjoxNjYzNTA5ODg2fQ.XjL1i0NuomRzsUyW1lMBMGwAZI7nqpKGpYT8oVqMMJ0
+
+{
+   "name": "alo?????",
+   "nickname": "REFA 1501",
+   "role": "admin"
+}

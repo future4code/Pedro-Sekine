@@ -1,0 +1,3 @@
+**O que são os round e salt? Que valores são recomendados para o round? Que valor você usou? Por quê?**
+
+Round se refere à segurança do hash criado pelo brcyptjs. Quanto maior a quantidade de rouds, maior a segurança. Contudo, o recomendado é não passar do valor 12, não comprometendo a performance da aplicação. Somente transformar a senha em um hash não é a única camada de proteção dessa ferramenta e o salt insere uma string aleatória na senha antes que o hash seja criado. Assim, impede-se que se descubram senhas na base da tentativa e erro.
