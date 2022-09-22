@@ -2,8 +2,8 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-  "name": "testeadm",
-  "email": "testeadm",
+  "name": "aloa",
+  "email": "pedrosek@gmail.com",
   "password": "testeadm",
   "role": "admin"
 }
@@ -84,7 +84,7 @@ PUT http://localhost:3003/user/login/resetPassword
 Content-Type: application/json
 
 {
-  "email": "teste email"
+  "email": "pedrosek@gmail.com"
 }
 
 # {

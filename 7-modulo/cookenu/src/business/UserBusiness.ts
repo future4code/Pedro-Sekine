@@ -323,8 +323,6 @@ export class UserBusiness {
       }
       const payload = this.tokenManager.verifyToken(token) as JwtPayload;
 
-      console.log("payload.role", payload.role);
-
       if (payload.role !== "admin") {
         throw new NoPermission();
       }
