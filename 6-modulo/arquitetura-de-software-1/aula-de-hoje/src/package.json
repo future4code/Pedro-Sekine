@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "knex": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/knex": "^0.16.1"
+  }
+}
