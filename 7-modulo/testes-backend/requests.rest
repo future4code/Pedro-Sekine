@@ -1,0 +1,11 @@
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+  "name": "Name",
+  "role": "ADMIN",
+  "email": "email@emaafsdff.com",
+  "password": "email@email.com"
+}
+###
+GET http://localhost:3003/users/profile/35eb540e-e916-4f73-ad89-2b28c5256b3f
