@@ -1,0 +1,48 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email": "email adm",
+    "name": "name adm",
+    "password": "password adm",
+    "role": "ADMIN"
+}
+
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "email adm",
+    "password": "password adm"
+}
+
+###
+POST http://localhost:3003/band/signup
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZhMWRlNGVhLTljZjItNDUxYS05NmJkLWIzMzM2OTFhMjkyNiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2NTA0MzczOCwiZXhwIjoxNjY1MDQ0MzM4fQ.A3rqZnmbULuLXlhUuzFCItsfyTzNAT1A_RXM2zZr5tk
+
+{
+    "name": "name 1008",
+    "musicGenre": "musicGenre 1008",
+    "responsible": "responsible 1008"
+}
+
+### 
+
+GET http://localhost:3003/band/9372740a-b7cd-4b70-b12a-d185f06c1c62
+
+### 
+
+POST http://localhost:3003/concert/signup
+Content-Type: application/json
+
+{
+    "weekDay": "sunday",
+    "startTime": 14,
+    "endTime": 17,
+    "id": "c0908444-4cc6-4545-be97-0add7559c1c5"
+}
+
+###
+GET http://localhost:3003/concert/schedule/adf
